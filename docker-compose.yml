@@ -1,0 +1,15 @@
+version: '3.3'
+services:
+  web:
+    build:
+      context: .
+    image: me:latest
+    stdin_open: true
+    tty: true
+    user: node
+    working_dir: /home/node/app
+    volumes:
+      - .:/home/node/app:cached
+    ports:
+      - 8080:8080
+      - 3000:3000
