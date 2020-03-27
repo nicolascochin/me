@@ -1,3 +1,8 @@
+import en from "vuetify/es5/locale/en";
+
 export default {
-  welcome: 'Welcome'
+  welcome: 'Welcome',
+  $vuetify: {
+    ...en
+  }
 }

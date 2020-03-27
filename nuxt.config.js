@@ -60,8 +60,8 @@ export default {
   */
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
+    optionsPath: './vuetify.options.js',
     theme: {
-      optionsPath: './vuetify.options.js',
       // dark: true,
       // themes: {
       //   dark: {
