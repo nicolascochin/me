@@ -42,27 +42,38 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
+    'nuxt-i18n'
   ],
+  i18n: {
+    locales: [
+      { code: 'en', iso: 'en-US', file: 'en.js' },
+      { code: 'fr', iso: 'fr-FR', file: 'fr.js' },
+    ],
+    defaultLocale: 'fr',
+    strategy: 'prefix_except_default',
+    lazy: true,
+    langDir: 'lang/',
+  },
   /*
   ** vuetify module configuration
   ** https://github.com/nuxt-community/vuetify-module
   */
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
-    treeShake: true,
+    optionsPath: './vuetify.options.js',
     theme: {
-      dark: true,
-      themes: {
-        dark: {
-          primary: colors.blue.darken2,
-          accent: colors.grey.darken3,
-          secondary: colors.amber.darken3,
-          info: colors.teal.lighten1,
-          warning: colors.amber.base,
-          error: colors.deepOrange.accent4,
-          success: colors.green.accent3
-        }
-      }
+      // dark: true,
+      // themes: {
+      //   dark: {
+      //     primary: colors.blue.darken2,
+      //     accent: colors.grey.darken3,
+      //     secondary: colors.amber.darken3,
+      //     info: colors.teal.lighten1,
+      //     warning: colors.amber.base,
+      //     error: colors.deepOrange.accent4,
+      //     success: colors.green.accent3
+      //   }
+      // }
     }
   },
   /*
