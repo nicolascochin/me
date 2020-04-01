@@ -1,5 +1,5 @@
-import Experience from "@/models/Experience"
+import Base from "@/models/Base"
 
-export default ({ app }, inject) => {
-  Experience.i18n = app.i18n
+export default ({ app }) => {
+  Base.i18n = app.i18n
 }
