@@ -30,6 +30,8 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    "@/plugins/moment",
+    "@/plugins/export_i18n",
   ],
   /*
   ** Nuxt.js dev-modules
