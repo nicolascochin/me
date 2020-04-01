@@ -7,18 +7,11 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "nuxt-property-decorator";
-import Experience from "@/models/Experience"
+import { Component, mixins } from "nuxt-property-decorator";
+import ExperienceMixin from "@/mixins/ExperienceMixin";
 
 @Component
-export default class ExperienceTimeline extends Vue {
-  get experienceKeys(): Array<string> {
-    return Object.keys(this.$t('experiences'))
-  }
-
-  get experiences(): Array<Experience> {
-    return this.experienceKeys.map(exp => new Experience(exp))
-  }
+export default class ExperienceTimeline extends mixins(ExperienceMixin) {
 }
 </script>
 
