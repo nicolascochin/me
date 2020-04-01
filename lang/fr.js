@@ -13,11 +13,26 @@ export default {
       title: 'Calyon',
       start: '2006-02',
       end: '2006-05',
+      tags: ['java', 'jUnit'],
     },
     thales: {
-      title: 'Thales ATM',
+      location: 'Melbourne (Australie)',
+      position: 'Java Software engineer',
+      company: 'Thales ATM',
       start: '2004-10',
       end: '2005-11',
+      tags: ['java', 'jUnit'],
+      description: `<p>The Java Human Machine Interface (JHMI) was a complete redevelopment of the GUI of the EUROCAT Air Traffic Management system – new languages, new UI philoshopies, new processes. Written in Java and OpenGL, the JHMI is a plug’n’play real-time command-an-control-style system.</p>
+      <span>Roles :</span>
+      <ul>
+        <li>Design and development of core's sytem</li>
+        <li>Design and development of OpenGL's framework</li>
+        <li>Design and development of plugins based on Eclipse RCP</li>
+        <li>Development of unit tests</li>
+      </ul>
+      <p></p>
+      <p>An eXtrem Programming environment was in place : TDD, Pair Programming...</p>
+      `,
     },
   }
 }

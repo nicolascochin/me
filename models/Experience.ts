@@ -12,11 +12,27 @@ export default class Experience extends Base {
     this.momentEnd = momentCustom.utc(this.getExperienceKey('end'));
   }
 
-  get title(): VueI18n.TranslateResult {
-    return this.getExperienceKey('title')
+  public get location(): VueI18n.TranslateResult {
+    return this.getExperienceKey('location')
   }
 
-  get duration(): string {
+  public get position(): VueI18n.TranslateResult {
+    return this.getExperienceKey('position')
+  }
+
+  public get company(): VueI18n.TranslateResult {
+    return this.getExperienceKey('company')
+  }
+
+  public get description(): VueI18n.TranslateResult {
+    return this.getExperienceKey('description')
+  }
+
+  public get tags(): VueI18n.TranslateResult {
+    return this.getExperienceKey('tags')
+  }
+
+  public get duration(): string {
     const years: number = this.durationObject.years;
     const months: number = this.durationObject.months;
     const yearsString: string = years ? `${years} ${this.tc('year', years)}` : '';
