@@ -11,7 +11,7 @@
 import { Component, Vue } from "nuxt-property-decorator";
 import ExperienceTimeline from "@/components/resume/experiences/ExperienceTimeline.vue";
 import InfosSection from "@/components/resume/infos/InfoSection.vue";
-import Me from "@/components/resume/infos/Me.vue";
+import Me from "@/components/resume/me/Me.vue";
 
 @Component({
   components: {
