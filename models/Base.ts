@@ -12,4 +12,8 @@ export default class Base {
   protected tc(key: string, count: number, options: any[] = [] ): VueI18n.TranslateResult {
     return Base.i18n.tc(key, count, options)
   }
+
+  protected d(date: Date, format: string ): VueI18n.TranslateResult {
+    return Base.i18n.d(date, format)
+  }
 }

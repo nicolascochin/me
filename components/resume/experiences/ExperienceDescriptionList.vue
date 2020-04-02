@@ -26,8 +26,12 @@ export default class ExperienceDescriptionList extends Vue {
     return [
       { icon: 'mdi-at',         text: this.experience.company },
       { icon: 'mdi-map-marker', text: this.experience.location },
-      { icon: 'mdi-timelapse',  text: this.experience.duration },
+      { icon: 'mdi-timelapse',  text: this.showDuration },
     ]
+  }
+
+  private get showDuration(): string {
+    return `${this.experience.startHuman} - ${this.experience.endHuman} (${this.experience.duration})`
   }
 }
 </script>

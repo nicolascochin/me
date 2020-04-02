@@ -1,4 +1,4 @@
-import momentCustom from 'moment';
+import momentCustom, { Moment } from 'moment';
 import Base from "./Base"
 import VueI18n from 'vue-i18n'
 
@@ -10,6 +10,14 @@ export default class Experience extends Base {
     super()
     this.momentStart = momentCustom.utc(this.getExperienceKey('start'));
     this.momentEnd = momentCustom.utc(this.getExperienceKey('end'));
+  }
+
+  public get startHuman(): string {
+    return this.formatDateMonthYear(this.momentStart)
+  }
+
+  public get endHuman(): string {
+    return this.formatDateMonthYear(this.momentEnd)
   }
 
   public get location(): VueI18n.TranslateResult {
@@ -46,5 +54,9 @@ export default class Experience extends Base {
 
   private getExperienceKey(key: string): VueI18n.TranslateResult {
     return this.t(`experiences.${this.i18nKey}.${key}`)
+  }
+
+  private formatDateMonthYear(date: Moment): string {
+    return date.format('MMMM YYYY');
   }
 }
