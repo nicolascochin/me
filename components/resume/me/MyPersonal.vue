@@ -6,7 +6,7 @@
         :key="i"
       >
         <v-list-item-icon>
-          <v-icon v-text="item.icon"></v-icon>
+          <v-icon>{{item.icon}}</v-icon>
         </v-list-item-icon>
         <v-list-item-content>
           <v-list-item-title v-text="item.value"></v-list-item-title>
@@ -19,6 +19,7 @@
 <script lang="ts">
 import { Component, Vue } from "nuxt-property-decorator";
 import VueI18n from 'vue-i18n'
+import { mdiRemote, mdiBriefcase, mdiHome } from "@mdi/js";
 
 interface IPersonal {
   icon: string,
@@ -30,9 +31,9 @@ export default class MyPersonal extends Vue {
   private static i18nPrefix: string = 'resume.me.personal';
 
   private items: Array<IPersonal> = [
-    { icon: 'mdi-remote', value: this.translate('remote')},
-    { icon: 'mdi-briefcase', value: this.translatec('xp', 2)},
-    { icon: 'mdi-home', value: this.translate('home')},
+    { icon: mdiRemote, value: this.translate('remote')},
+    { icon: mdiBriefcase, value: this.translatec('xp', 2)},
+    { icon: mdiHome, value: this.translate('home')},
   ]
 
   private translate(key: string): VueI18n.TranslateResult {
