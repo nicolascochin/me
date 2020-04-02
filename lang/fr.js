@@ -9,6 +9,10 @@ export default {
     ...fr
   },
   resume: {
+    me: {
+      position: 'Lead developer - Web architect',
+      subPosition: 'Backend - Frontend - Devops',
+    },
     infos: {
       title: 'Infos',
       content: `<p>slsqlsq</p>

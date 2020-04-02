@@ -1,0 +1,40 @@
+<template>
+  <v-container>
+    <v-row>
+      <v-col cols="12" md="4" class="d-flex justify-start" >
+        <MyPersonal />
+      </v-col>
+      <v-col cols="12" md="4" class="d-flex justify-center">
+        <MyAvatar />
+      </v-col>
+      <v-col cols="12" md="4" class="d-flex justify-end">
+        <MyContact />
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col cols="12" class="d-flex flex-column align-center">
+        <span class="headline">{{ $t('resume.me.position') }}</span>
+        <span class="title">{{ $t('resume.me.subPosition') }}</span>
+      </v-col>
+    </v-row>
+  </v-container>
+
+</template>
+
+<script lang="ts">
+import { Component, Vue } from "nuxt-property-decorator";
+import MyAvatar from "./MyAvatar.vue"
+import MyContact from "./MyContact.vue"
+import MyPersonal from "./MyPersonal.vue"
+
+@Component({
+  components: {
+    MyAvatar,
+    MyContact,
+    MyPersonal,
+  }
+})
+export default class Me extends Vue {
+
+}
+</script>
