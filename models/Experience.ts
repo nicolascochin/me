@@ -53,7 +53,7 @@ export default class Experience extends Base {
   }
 
   private getExperienceKey(key: string): VueI18n.TranslateResult {
-    return this.t(`experiences.${this.i18nKey}.${key}`)
+    return this.t(`resume.experience.experiences.${this.i18nKey}.${key}`)
   }
 
   private formatDateMonthYear(date: Moment): string {

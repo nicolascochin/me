@@ -1,20 +1,16 @@
 <template>
   <div>
-    <Section title="Expériences">
-      <ExperienceTimeline />
-    </Section>
+    <ExperienceTimeline />
   </div>
 </template>
 
 
 <script lang="ts">
 import { Component, Vue } from "nuxt-property-decorator";
-import Section from "@/components/resume/Section.vue";
 import ExperienceTimeline from "@/components/resume/experiences/ExperienceTimeline.vue";
 
 @Component({
   components: {
-    Section,
     ExperienceTimeline,
   }
 })

@@ -4,7 +4,7 @@ import Experience from "@/models/Experience"
 @Component
 export default class ExperienceMixin extends Vue {
   get experienceKeys(): Array<string> {
-    return Object.keys(this.$t('experiences'))
+    return Object.keys(this.$t('resume.experience.experiences'))
   }
 
   get experiences(): Array<Experience> {

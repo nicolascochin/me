@@ -1,11 +1,14 @@
 <template>
-  <v-timeline dense>
-    <ExperienceTimelineItem
-      v-for="experience in experiences"
-      :key="experience.i18nKey"
-      :experience="experience"
-    />
-  </v-timeline>
+  <section>
+    <h2 class="resume section_title">{{$t('resume.experience.title')}}</h2>
+    <v-timeline dense>
+      <ExperienceTimelineItem
+        v-for="experience in experiences"
+        :key="experience.i18nKey"
+        :experience="experience"
+      />
+    </v-timeline>
+  </section>
 </template>
 
 <script lang="ts">
