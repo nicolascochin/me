@@ -9,6 +9,11 @@ export default {
     ...fr
   },
   resume: {
+    infos: {
+      title: 'Infos',
+      content: `<p>slsqlsq</p>
+      <p>fffd</p>`,
+    },
     experience: {
       title: 'Expériences',
       experiences: {
