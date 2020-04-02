@@ -47,6 +47,34 @@ export default {
   modules: [
     'nuxt-i18n'
   ],
+  /*
+  ** Nuxt?js hooks
+  */
+  hooks: {
+    generate: {
+      page ({route, path, html}) {
+        html = html.replace('<link data-n-head="ssr" rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css">', '')
+        // console.log('___________________________________');
+        // console.log('___________________________________');
+        // console.log('___________________________________');
+        // console.log('___________________________________');
+        // console.log('___________________________________');
+        console.log('___________________________________');
+        console.log(route);
+        console.log('___________________________________');
+        // console.log('___________________________________');
+        // console.log('___________________________________');
+        // console.log(path);
+        // console.log('___________________________________');
+        // console.log('___________________________________');
+        // console.log('___________________________________');
+        console.log(html);
+        console.log('___________________________________');
+        // console.log('___________________________________');
+        // console.log('___________________________________');
+      }
+    },
+  },
   i18n: {
     locales: [
       { code: 'en', iso: 'en-US', file: 'en.js' },
