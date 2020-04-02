@@ -10,12 +10,22 @@ export default {
   },
   resume: {
     me: {
+      personal: {
+        remote: 'working full remote',
+        xp: "sans expérience | un an d'expérience | {count} années d'expérience",
+        home: 'Menthon saint Bernard, 74290, France',
+      },
       position: 'Lead developer - Web architect',
       subPosition: 'Backend - Frontend - Devops',
     },
     infos: {
       title: 'Infos',
       content: `<p>slsqlsq</p>
+      <p>fffd</p>`,
+    },
+    education: {
+      title: 'Education',
+      content: `<p>EPITA (promo 2004)</p>
       <p>fffd</p>`,
     },
     experience: {

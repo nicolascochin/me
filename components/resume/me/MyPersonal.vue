@@ -18,18 +18,29 @@
 
 <script lang="ts">
 import { Component, Vue } from "nuxt-property-decorator";
+import VueI18n from 'vue-i18n'
 
-interface IContact {
+interface IPersonal {
   icon: string,
-  value: string
+  value: VueI18n.TranslateResult
 }
 
 @Component
 export default class MyPersonal extends Vue {
-  private items: Array<IContact> = [
-    { icon: 'mdi-school', value: 'EPITA (promo 2004)'},
-    { icon: 'mdi-briefcase', value: 'todo'},
-    { icon: 'mdi-home', value: 'Menthon saint Bernard (74)'},
+  private static i18nPrefix: string = 'resume.me.personal';
+
+  private items: Array<IPersonal> = [
+    { icon: 'mdi-remote', value: this.translate('remote')},
+    { icon: 'mdi-briefcase', value: this.translatec('xp', 2)},
+    { icon: 'mdi-home', value: this.translate('home')},
   ]
+
+  private translate(key: string): VueI18n.TranslateResult {
+    return this.$t(`${MyPersonal.i18nPrefix}.${key}`)
+  }
+
+  private translatec(key: string, count: number): VueI18n.TranslateResult {
+    return this.$tc(`${MyPersonal.i18nPrefix}.${key}`, count, {count: count})
+  }
 }
 </script>

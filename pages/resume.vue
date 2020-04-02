@@ -1,8 +1,9 @@
 <template>
   <div>
     <Me />
-    <InfosSection />
+    <SimpleSection i18nKey="infos" />
     <ExperienceTimeline />
+    <SimpleSection i18nKey="education"  />
   </div>
 </template>
 
@@ -10,13 +11,13 @@
 <script lang="ts">
 import { Component, Vue } from "nuxt-property-decorator";
 import ExperienceTimeline from "@/components/resume/experiences/ExperienceTimeline.vue";
-import InfosSection from "@/components/resume/infos/InfoSection.vue";
+import SimpleSection from "@/components/resume/SimpleSection.vue";
 import Me from "@/components/resume/me/Me.vue";
 
 @Component({
   components: {
     ExperienceTimeline,
-    InfosSection,
+    SimpleSection,
     Me,
   }
 })
