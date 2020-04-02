@@ -1,4 +1,5 @@
 import colors from 'vuetify/es5/util/colors'
+import momentFork from 'moment';
 
 export default {
   mode: 'universal',
@@ -30,6 +31,8 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    "@/plugins/moment",
+    "@/plugins/export_i18n",
   ],
   /*
   ** Nuxt.js dev-modules
@@ -53,6 +56,8 @@ export default {
     strategy: 'prefix_except_default',
     lazy: true,
     langDir: 'lang/',
+    beforeLanguageSwitch: (oldLocale, newLocale) => console.log('fdfklsjflksdjfklsdjlkjsdkl'),
+    onLanguageSwitched: (oldLocale, newLocale) => console.log(`dhskqjdhjkqshdkjqshkjd -- [${newLocale}]`)
   },
   /*
   ** vuetify module configuration

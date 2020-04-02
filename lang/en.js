@@ -1,8 +1,13 @@
 import en from "vuetify/es5/locale/en";
 
 export default {
-  welcome: 'Welcome',
+  and: 'and',
+  year:  'year | years',
+  month: 'month | months',
   $vuetify: {
     ...en
+  },
+  experiences: {
+
   }
 }
