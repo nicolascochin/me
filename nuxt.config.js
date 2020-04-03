@@ -115,6 +115,8 @@ export default {
       // if (ctx && ctx.isClient) {
       //   config.optimization.splitChunks.maxSize = 51200
       // }
+      if (ctx && ctx.isClient) {
+        config.optimization.splitChunks.maxSize = 51200 * 18      }
     }
   }
 }
