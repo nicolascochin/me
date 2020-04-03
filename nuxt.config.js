@@ -55,7 +55,12 @@ export default {
       route(url, result, context) {
         result.html = result.html.replace('<link data-n-head="ssr" rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css">', '')
       }
-    }
+    },
+    generate: {
+      page(page) {
+        page.html = page.html.replace('<link data-n-head="ssr" rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css">', '')
+      }
+    },
   },
   i18n: {
     locales: [
