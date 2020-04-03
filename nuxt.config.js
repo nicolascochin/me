@@ -45,23 +45,24 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
-    'nuxt-i18n'
+    'nuxt-i18n',
+    'nuxt-webfontloader',
   ],
   /*
-  ** Nuxt?js hooks
+  ** Nuxt.js hooks (unused thanks to defaultAssets: false,)
   */
-  hooks: {
-    render: {
-      route(url, result, context) {
-        result.html = result.html.replace('<link data-n-head="ssr" rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css">', '')
-      }
-    },
-    generate: {
-      page(page) {
-        page.html = page.html.replace('<link data-n-head="ssr" rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css">', '')
-      }
-    },
-  },
+  // hooks: {
+  //   render: {
+  //     route(url, result, context) {
+  //       result.html = result.html.replace('<link data-n-head="ssr" rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css">', '')
+  //     }
+  //   },
+  //   generate: {
+  //     page(page) {
+  //       page.html = page.html.replace('<link data-n-head="ssr" rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css">', '')
+  //     }
+  //   },
+  // },
   i18n: {
     locales: [
       { code: 'en', iso: 'en-US', file: 'en.js' },
@@ -74,12 +75,18 @@ export default {
     beforeLanguageSwitch: (oldLocale, newLocale) => console.log('fdfklsjflksdjfklsdjlkjsdkl'),
     onLanguageSwitched: (oldLocale, newLocale) => console.log(`dhskqjdhjkqshdkjqshkjd -- [${newLocale}]`)
   },
+  webfontloader: {
+    google: {
+      families: ['Roboto:100,300,400,500,700,900&display=swap']
+    }
+  },
   /*
   ** vuetify module configuration
   ** https://github.com/nuxt-community/vuetify-module
   */
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
+    defaultAssets: false,
     optionsPath: './vuetify.options.js',
     theme: {
       // dark: true,
