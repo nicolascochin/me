@@ -5,7 +5,7 @@
       :key="i"
     >
       <v-list-item-icon style="margin-right: 5px">
-        <v-icon v-text="item.icon"></v-icon>
+        <v-icon>{{item.icon}}</v-icon>
       </v-list-item-icon>
       <v-list-item-content>
         <v-list-item-title class="caption" v-text="item.text"></v-list-item-title>
@@ -17,16 +17,18 @@
 <script lang="ts">
 import { Component, Vue, Prop } from "nuxt-property-decorator";
 import Experience from "@/models/Experience";
+import { mdiAt, mdiMapMarker, mdiTimelapse } from '@mdi/js'
 
 @Component
 export default class ExperienceDescriptionList extends Vue {
   @Prop({required: true, type: Experience}) private experience!: Experience;
 
+
   get subTitles(): any[] {
     return [
-      { icon: 'mdi-at',         text: this.experience.company },
-      { icon: 'mdi-map-marker', text: this.experience.location },
-      { icon: 'mdi-timelapse',  text: this.showDuration },
+      { icon: mdiAt,         text: this.experience.company },
+      { icon: mdiMapMarker, text: this.experience.location },
+      { icon: mdiTimelapse,  text: this.showDuration },
     ]
   }
 

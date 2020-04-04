@@ -6,7 +6,6 @@
   >
     <v-card>
       <v-card-title class="purple lighten-2">
-        <!-- <v-icon dark size="42" class="mr-4">mdi-magnify</v-icon> -->
         <h2 class="display-0 white--text font-weight-light">{{experience.position}}</h2>
       </v-card-title>
       <ExperienceDescriptionList :experience="experience" />

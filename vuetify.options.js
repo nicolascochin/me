@@ -4,7 +4,9 @@ export default function ({ app }) {
       t: (key, ...params) => app.i18n.t(key, params),
     },
     breakpoint: {},
-    icons: {},
+    icons: {
+      iconfont: 'mdiSvg',
+    },
     rtl: false,
     theme: {
       options: {

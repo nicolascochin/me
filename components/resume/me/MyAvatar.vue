@@ -2,8 +2,8 @@
   <section>
     <v-avatar :size="150" class="with-border" >
       <v-img
-        src="/me.jpeg"
-        lazy-src="/me.jpeg"
+        src="/me.webp"
+        lazy-src="/me.webp"
         alt="Nicolas COCHIN"
         contain
       >

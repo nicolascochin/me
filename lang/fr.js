@@ -35,8 +35,8 @@ export default {
           location: 'Paris (France)',
           position: 'Java Software engineer',
           company: 'Crédit agricole CIB',
-          start: '2006-05',
-          end: '2007-08',
+          start: '5-2006',
+          end: '8-2007',
           tags: ['java', 'jUnit'],
           description: `<p>todo</p>
           `,
@@ -45,8 +45,8 @@ export default {
           location: 'Melbourne (Australie)',
           position: 'Java Software engineer',
           company: 'Thales ATM',
-          start: '2004-11',
-          end: '2006-05',
+          start: '11-2004',
+          end: '05-2006',
           tags: ['java', 'jUnit'],
           description: `<p>The Java Human Machine Interface (JHMI) was a complete redevelopment of the GUI of the EUROCAT Air Traffic Management system – new languages, new UI philoshopies, new processes. Written in Java and OpenGL, the JHMI is a plug’n’play real-time command-an-control-style system.</p>
           <span>Roles :</span>

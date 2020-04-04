@@ -6,7 +6,7 @@
         :key="i"
       >
         <v-list-item-icon>
-          <v-icon v-text="item.icon"></v-icon>
+          <v-icon>{{item.icon}}</v-icon>
         </v-list-item-icon>
         <v-list-item-content>
           <v-list-item-title v-text="item.value"></v-list-item-title>
@@ -18,7 +18,7 @@
 
 <script lang="ts">
 import { Component, Vue } from "nuxt-property-decorator";
-
+import { mdiGithub, mdiLinkedin, mdiEmail } from "@mdi/js";
 interface IContact {
   icon: string,
   value: string
@@ -27,9 +27,9 @@ interface IContact {
 @Component
 export default class MyContact extends Vue {
   private items: Array<IContact> = [
-    { icon: 'mdi-github', value: 'https://github.com/nicolascochin'},
-    { icon: 'mdi-linkedin', value: 'https://www.linkedin.com/in/nicolascochin/'},
-    { icon: 'mdi-email', value: 'email me'},
+    { icon: mdiGithub, value: 'https://github.com/nicolascochin'},
+    { icon: mdiLinkedin, value: 'https://www.linkedin.com/in/nicolascochin/'},
+    { icon: mdiEmail, value: 'email me'},
   ]
 }
 </script>

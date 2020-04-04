@@ -1,9 +1,12 @@
-// Use momentCustom in order to avoid a webpack issue (several lib export moment)
-import momentCustom from 'moment';
 import VueI18n from 'vue-i18n'
 
 export default class Base {
   public static i18n: VueI18n;
+  public static moment: any;
+
+  protected get moment() {
+    return Base.moment;
+  }
 
   protected t(key: string): VueI18n.TranslateResult {
     return Base.i18n.t(key)

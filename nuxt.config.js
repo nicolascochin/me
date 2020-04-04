@@ -31,7 +31,7 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    "@/plugins/moment",
+    "@/plugins/export_moment",
     "@/plugins/export_i18n",
   ],
   /*
@@ -45,8 +45,35 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
-    'nuxt-i18n'
+    'nuxt-i18n',
+    '@nuxtjs/moment',
+    'nuxt-webfontloader',
   ],
+  /*
+  ** Nuxt.js hooks (unused thanks to defaultAssets: false,)
+  */
+  // hooks: {
+  //   render: {
+  //     route(url, result, context) {
+  //       result.html = result.html.replace('<link data-n-head="ssr" rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css">', '')
+  //     }
+  //   },
+  //   generate: {
+  //     page(page) {
+  //       page.html = page.html.replace('<link data-n-head="ssr" rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css">', '')
+  //     }
+  //   },
+  // },
+  /*
+  ** @nuxtjs/moment config
+  */
+  moment: {
+    locales: ['fr'],
+    defaultLocale: 'fr',
+    plugins: [
+      'moment-precise-range-plugin',
+    ]
+  },
   i18n: {
     locales: [
       { code: 'en', iso: 'en-US', file: 'en.js' },
@@ -59,12 +86,18 @@ export default {
     beforeLanguageSwitch: (oldLocale, newLocale) => console.log('fdfklsjflksdjfklsdjlkjsdkl'),
     onLanguageSwitched: (oldLocale, newLocale) => console.log(`dhskqjdhjkqshdkjqshkjd -- [${newLocale}]`)
   },
+  webfontloader: {
+    google: {
+      families: ['Roboto:100,300,400,500,700,900&display=swap']
+    }
+  },
   /*
   ** vuetify module configuration
   ** https://github.com/nuxt-community/vuetify-module
   */
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
+    defaultAssets: false,
     optionsPath: './vuetify.options.js',
     theme: {
       // dark: true,
@@ -85,14 +118,16 @@ export default {
   ** Build configuration
   */
   build: {
-    extractCSS: true,
+    // extractCSS: true,
     /*
     ** You can extend webpack config here
     */
     extend (config, ctx) {
+      // if (ctx && ctx.isClient) {
+      //   config.optimization.splitChunks.maxSize = 51200
+      // }
       if (ctx && ctx.isClient) {
-        config.optimization.splitChunks.maxSize = 51200
-      }
+        config.optimization.splitChunks.maxSize = 51200 * 18      }
     }
   }
 }
