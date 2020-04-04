@@ -1,15 +1,16 @@
-import momentCustom, { Moment } from 'moment';
+import { Moment } from 'moment';
+import { PreciseRangeValueObject } from "moment-precise-range-plugin";
 import Base from "./Base"
 import VueI18n from 'vue-i18n'
 
 export default class Experience extends Base {
-  public momentStart!: momentCustom.Moment;
-  public momentEnd!: momentCustom.Moment;
+  public momentStart!: Moment;
+  public momentEnd!: Moment;
 
   constructor(public i18nKey: string) {
     super()
-    this.momentStart = momentCustom.utc(this.getExperienceKey('start'));
-    this.momentEnd = momentCustom.utc(this.getExperienceKey('end'));
+    this.momentStart = this.moment.utc(this.getExperienceKey('start'), "MM-YYYY");
+    this.momentEnd = this.moment.utc(this.getExperienceKey('end'), "MM-YYYY");
   }
 
   public get startHuman(): string {
@@ -48,8 +49,8 @@ export default class Experience extends Base {
     return `${yearsString} ${years && months ? ` ${this.t('and')} ` : ''} ${monthsString}`;
   }
 
-  private get durationObject(): momentCustom.PreciseRangeValueObject {
-    return momentCustom.preciseDiff(this.momentStart, this.momentEnd, true);
+  private get durationObject(): PreciseRangeValueObject {
+    return this.moment.preciseDiff(this.momentStart, this.momentEnd, true);
   }
 
   private getExperienceKey(key: string): VueI18n.TranslateResult {

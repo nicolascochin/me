@@ -7,7 +7,6 @@ export default {
   $vuetify: {
     ...en
   },
-  experiences: {
-
-  }
+  resume: {
+  },
 }

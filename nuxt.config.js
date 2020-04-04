@@ -31,7 +31,7 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    "@/plugins/moment",
+    "@/plugins/export_moment",
     "@/plugins/export_i18n",
   ],
   /*
@@ -46,6 +46,7 @@ export default {
   */
   modules: [
     'nuxt-i18n',
+    '@nuxtjs/moment',
     'nuxt-webfontloader',
   ],
   /*
@@ -63,6 +64,16 @@ export default {
   //     }
   //   },
   // },
+  /*
+  ** @nuxtjs/moment config
+  */
+  moment: {
+    locales: ['fr'],
+    defaultLocale: 'fr',
+    plugins: [
+      'moment-precise-range-plugin',
+    ]
+  },
   i18n: {
     locales: [
       { code: 'en', iso: 'en-US', file: 'en.js' },
