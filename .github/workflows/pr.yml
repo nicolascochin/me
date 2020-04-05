@@ -26,9 +26,11 @@ jobs:
         uses: geertvdc/setup-hub@master
 
       - name:  Create a PR if it does not exists
+        shell: bash
         env:
           GITHUB_USER: ${{ secrets.GITHUB_USER }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          ls -la
           PR_TITLE="test title"
-          hub pull-request -b master --no-edit "${PR_TITLE}" -m 'GIF \n <hr />\n <ul><li>one</li></ul>' || true
+          hub pull-request -b master --no-edit "${PR_TITLE}" -m "GIF \n <hr />\n <ul><li>one</li></ul>" || true
