@@ -24,13 +24,6 @@ jobs:
         uses: elgohr/Github-Hub-Action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        shell: bash
-        run: "ff"
-
-      - name: Create a PR if it does not exists
-        uses: elgohr/Github-Hub-Action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           args: "pull-request \
           -b master \
