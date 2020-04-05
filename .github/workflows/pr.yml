@@ -39,5 +39,5 @@ jobs:
           <ul><li>one</li></ul>"
           MESSAGE="${PR_TITLE}
 
-          ${PR_MESSAGE}"
+          ${PR_DESC}"
           hub pull-request -b master -m "${MESSAGE}" || true
