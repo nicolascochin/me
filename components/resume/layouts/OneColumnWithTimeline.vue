@@ -1,10 +1,10 @@
 <template>
-  <div>
+  <article id="resume">
     <Me :data="resume.me" />
     <SimpleSection :data="resume.infos" />
     <ExperienceTimeline :data="resume.experiences" />
     <SimpleSection :data="resume.education"  />
-  </div>
+  </article>
 </template>
 
 <script lang="ts">
@@ -25,3 +25,12 @@ export default class OneColumnWithTimelineLayout extends Vue {
   @Prop({required: true, type: Resume}) resume!: Resume;
 }
 </script>
+
+<style lang="scss">
+#resume {
+  .section_title {
+    border-bottom: 1px solid var(--v-primary-base);
+    margin-bottom: 20px;
+  }
+}
+</style>
