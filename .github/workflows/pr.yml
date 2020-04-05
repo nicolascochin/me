@@ -21,9 +21,9 @@ jobs:
     name: Create/Update the PR
     runs-on: ubuntu-latest
     steps:
-      - name: Create a PR if it does not exists
-        uses: elgohr/Github-Hub-Action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          args: pull-request -b master --no-edit 'test title' -m 'GIF \n <hr />\n <ul><li>one</li></ul>' || true
+      - name: Install hub
+      uses: geertvdc/setup-hub@master
+
+      - name:  Create a PR if it does not exists
+        run: |
+          hub pull-request -b master --no-edit 'test title' -m 'GIF \n <hr />\n <ul><li>one</li></ul>' || true
