@@ -22,15 +22,15 @@ jobs:
         shell: bash
         id: target
         run: |
-          echo "head ref ${{ github.head_ref }}"
-          if [[ "${{github.head_ref}}" = "master" ]]
+          echo "head ref ${{ github.ref }}"
+          if [[ "${{github.ref}}" = "master" ]]
           then
             DEST="production"
             TITLE="https://www.estcequonmetenprodaujourdhui.info"
             LABEL="next release"
             else
             DEST="master"
-            TITLE="${{github.head_ref}}"
+            TITLE="${{github.ref}}"
             LABEL="wip"
           fi
           echo "::set-output name=destination_branch::${DEST}"
@@ -42,7 +42,6 @@ jobs:
           GITHUB_USER: ${{ secrets.GITHUB_USER }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          ls -la
           PR_TITLE="${{ steps.target.outputs.title }}"
           PR_DESC="![GIF](${{ steps.giphy_url.outputs.url }})
           <hr />
