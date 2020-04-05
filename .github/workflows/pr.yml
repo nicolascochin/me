@@ -26,4 +26,4 @@ jobs:
 
       - name:  Create a PR if it does not exists
         run: |
-          hub pull-request -b master --no-edit 'test title' -m 'GIF \n <hr />\n <ul><li>one</li></ul>' || true
+          echo "test title" | hub pull-request -b master --no-edit -m 'GIF \n <hr />\n <ul><li>one</li></ul>' || true
