@@ -19,6 +19,7 @@ jobs:
         run: echo 'The result was ${{ steps.giphy_url.outputs.url }}'
   pr:
     name: Create/Update the PR
+    runs-on: ubuntu-latest
     steps:
       - name: Create a PR if it does not exists
         uses: elgohr/Github-Hub-Action@master
