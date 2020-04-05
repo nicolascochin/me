@@ -25,6 +25,24 @@ jobs:
           SEARCH="failure"
           URL=$(curl -s https://api.giphy.com/v1/gifs/random\?api_key\=${API_KEY}\&tag\=${SEARCH} | jq .data.image_url | tr -d \")
           echo "::set-output name=url::${URL}"
+      - name: Target decoder
+        shell: bash
+        id: target
+        run: |
+          echo "head ref [${{github.head_ref}}]"
+          if [[ ${{github.head_ref}} = "master" ]]
+          then
+            DEST="production"
+            TITLE="https://www.estcequonmetenprodaujourdhui.info"
+            LABEL="next release"
+            else
+            DEST="master"
+            TITLE="${{github.head_ref}}"
+            LABEL="wip"
+          fi
+          echo "::set-output name=destination_branch::${DEST}"
+          echo "::set-output name=title::${TITLE}"
+          echo "::set-output name=label::${LABEL}"
       - name:  Create a PR if it does not exists
         shell: bash
         env:
@@ -32,12 +50,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           ls -la
-          PR_TITLE="test title"
+          PR_TITLE="${{ steps.target.outputs.title }}"
           PR_DESC="![GIF](${{ steps.giphy_url.outputs.url }})
           <hr />
 
-          <ul><li>one</li></ul>"
+          <!-- COMMIT LIST START -->
+          <!-- COMMIT LIST END -->"
           MESSAGE="${PR_TITLE}
 
           ${PR_DESC}"
-          hub pull-request -b master -m "${MESSAGE}" || true
+          hub pull-request -b "${{ steps.target.outputs.destination_branch }}" -l "${{ steps.target.outputs.label }}" -m "${MESSAGE}"  || true
