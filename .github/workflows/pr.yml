@@ -23,7 +23,7 @@ jobs:
           API_KEY: ${{ secrets.GIPHY_API_KEY }}
         run: |
           SEARCH="failure"
-          URL=$(curl -s https://api.giphy.com/v1/gifs/random\?api_key\=${API_KEY}\&tag\=${SEARCH} | jq .data.url | tr -d \")
+          URL=$(curl -s https://api.giphy.com/v1/gifs/random\?api_key\=${API_KEY}\&tag\=${SEARCH} | jq .data.image_url | tr -d \")
           echo "::set-output name=url::${URL}"
       - name:  Create a PR if it does not exists
         shell: bash
