@@ -31,4 +31,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           PR_TITLE="test title"
-          echo "${PR_TITLE}" | hub pull-request -b master --no-edit -m 'GIF \n <hr />\n <ul><li>one</li></ul>' || true
+          hub pull-request -b master --no-edit "${PR_TITLE}" -m 'GIF \n <hr />\n <ul><li>one</li></ul>' || true
