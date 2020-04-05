@@ -1,0 +1,20 @@
+name: Manage Pull Request
+on: [push]
+
+jobs:
+  gif:
+    name: Find a funny Gif
+    runs-on: ubuntu-latest
+    steps:
+      - shell: bash
+        name: Get a random url
+        id: giphy_url
+        with:
+          search: failure
+        env:
+          API_KEY: ${{ secrets.GIPHY_API_KEY }}
+        run: |
+          URL=$(curl -s https://api.giphy.com/v1/gifs/random\?api_key\=${API_KEY}\&tag\=${search} | jq .data.url | tr -d \")
+          echo "::set-output name=url::${URL}"
+      - name: Test
+        run: echo 'The result was ${{ steps.giphy_url.outputs.url }}.'
