@@ -33,4 +33,4 @@ jobs:
         run: |
           ls -la
           PR_TITLE="test title"
-          (echo "${PR_TITLE}" | hub pull-request -b master --no-edit -m "GIF \n <hr />\n <ul><li>one</li></ul>") || true
+          (echo "${PR_TITLE}" | hub pull-request -b master -m "GIF \n <hr />\n <ul><li>one</li></ul>") || true
