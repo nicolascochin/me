@@ -1,9 +1,9 @@
 <template>
   <section>
-    <h2 class="resume section_title">{{$t('resume.experience.title')}}</h2>
+    <h2 class="resume section_title">{{data.title}}</h2>
     <v-timeline dense>
       <ExperienceTimelineItem
-        v-for="experience in experiences"
+        v-for="experience in data.experiences"
         :key="experience.i18nKey"
         :experience="experience"
       />
@@ -12,16 +12,18 @@
 </template>
 
 <script lang="ts">
-import { Component, mixins } from "nuxt-property-decorator";
+import { Component, Vue, Prop } from "nuxt-property-decorator";
 import ExperienceMixin from "@/mixins/ExperienceMixin";
 import ExperienceTimelineItem from "./ExperienceTimelineItem.vue";
+import Experiences from "@/models/Experiences";
 
 @Component({
   components: {
     ExperienceTimelineItem,
   }
 })
-export default class ExperienceTimeline extends mixins(ExperienceMixin) {
+export default class ExperienceTimeline extends Vue {
+  @Prop({required: true, type: Experiences}) data!: Experiences;
 }
 </script>
 
