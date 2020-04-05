@@ -10,7 +10,7 @@ jobs:
         name: Get a random url
         id: giphy_url
         with:
-          search: failure
+          search: "failure"
         env:
           API_KEY: ${{ secrets.GIPHY_API_KEY }}
         run: |
