@@ -2,13 +2,6 @@ name: Manage Pull Request
 on: [push]
 
 jobs:
-  gif:
-    name: Find a funny Gif
-    runs-on: ubuntu-latest
-    steps:
-
-      - name: Test
-        run: echo 'The result was ${{ steps.giphy_url.outputs.url }}'
   pr:
     name: Create/Update the PR
     runs-on: ubuntu-latest
@@ -29,8 +22,8 @@ jobs:
         shell: bash
         id: target
         run: |
-          echo "head ref [${{github.head_ref}}]"
-          if [[ ${{github.head_ref}} = "master" ]]
+          echo "head ref ${{ github.head_ref }}"
+          if [[ "${{github.head_ref}}" = "master" ]]
           then
             DEST="production"
             TITLE="https://www.estcequonmetenprodaujourdhui.info"
