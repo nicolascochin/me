@@ -1,28 +1,20 @@
 <template>
-  <div>
-    <Me />
-    <SimpleSection i18nKey="infos" />
-    <ExperienceTimeline />
-    <SimpleSection i18nKey="education"  />
-  </div>
+  <OneColumnLayout :resume="resume" />
 </template>
 
 
 <script lang="ts">
 import { Component, Vue } from "nuxt-property-decorator";
-import ExperienceTimeline from "@/components/resume/experiences/ExperienceTimeline.vue";
-import SimpleSection from "@/components/resume/SimpleSection.vue";
-import Me from "@/components/resume/me/Me.vue";
+import OneColumnLayout from "@/components/resume/layouts/OneColumnWithTimeline.vue";
+import Resume from "@/models/Resume";
 
 @Component({
   components: {
-    ExperienceTimeline,
-    SimpleSection,
-    Me,
+    OneColumnLayout
   }
 })
 export default class PageResume extends Vue {
-
+  private resume: Resume = new Resume();
 }
 </script>
 
