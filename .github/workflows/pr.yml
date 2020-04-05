@@ -2,19 +2,71 @@ name: Manage Pull Request
 on: [push]
 
 jobs:
-  gif:
-    name: Find a funny Gif
+  pr:
+    name: Create/Update the PR
     runs-on: ubuntu-latest
     steps:
-      - shell: bash
-        name: Get a random url
+      - uses: actions/checkout@v2
+      - name: Fetch all
+        run: |
+          git fetch --prune --unshallow
+      - name: Install hub
+        uses: geertvdc/setup-hub@master
+      - name: Get a random GIF url
+        shell: bash
         id: giphy_url
-        with:
-          search: failure
         env:
           API_KEY: ${{ secrets.GIPHY_API_KEY }}
         run: |
-          URL=$(curl -s https://api.giphy.com/v1/gifs/random\?api_key\=${API_KEY}\&tag\=${search} | jq .data.url | tr -d \")
+          SEARCH="failure"
+          URL=$(curl -s https://api.giphy.com/v1/gifs/random\?api_key\=${API_KEY}\&tag\=${SEARCH} | jq .data.image_url | tr -d \")
           echo "::set-output name=url::${URL}"
-      - name: Test
-        run: echo 'The result was ${{ steps.giphy_url.outputs.url }}.'
+      - name: Target decoder
+        shell: bash
+        id: target
+        run: |
+          BRANCH_SOURCE=$(echo "${{ github.ref }}" | rev | cut -d'/' -f 1 | rev)
+          echo "head ref ${BRANCH_SOURCE}"
+          if [[ "${BRANCH_SOURCE}" = "master" ]]
+          then
+            DEST="production"
+            TITLE="https://www.estcequonmetenprodaujourdhui.info"
+            LABEL="next release"
+            else
+            DEST="master"
+            TITLE="${BRANCH_SOURCE}"
+            LABEL="wip"
+          fi
+          echo "::set-output name=current_branch::${BRANCH_SOURCE}"
+          echo "::set-output name=destination_branch::${DEST}"
+          echo "::set-output name=title::${TITLE}"
+          echo "::set-output name=label::${LABEL}"
+      - name:  Create a PR if it does not exists
+        shell: bash
+        env:
+          GITHUB_USER: ${{ secrets.GITHUB_USER }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          PR_TITLE="${{ steps.target.outputs.title }}"
+          PR_DESC="![GIF](${{ steps.giphy_url.outputs.url }})
+          <hr />
+
+          <!-- COMMIT LIST START -->
+          <!-- COMMIT LIST END -->"
+          MESSAGE="${PR_TITLE}
+
+          ${PR_DESC}"
+          hub pull-request -b "${{ steps.target.outputs.destination_branch }}" -l "${{ steps.target.outputs.label }}" -m "${MESSAGE}"  || true
+      - name: Find the PR number
+        shell: bash
+        env:
+          GITHUB_USER: ${{ secrets.GITHUB_USER }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          hub pr list --head ${{ steps.target.outputs.current_branch }} --base ${{ steps.target.outputs.destination_branch }} -f '%I'
+      - name:  Find the commits to merge
+        shell: bash
+        id: commits
+        run: |
+          LIST=$(git log origin/${{ steps.target.outputs.destination_branch }}..origin/${{ steps.target.outputs.current_branch }} --pretty=oneline --abbrev-commit | sed 's/^[a-zA*Z0-9]* //')
+          echo "::set-output name=list::${LIST}"
