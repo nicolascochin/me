@@ -16,4 +16,24 @@ jobs:
           URL=$(curl -s https://api.giphy.com/v1/gifs/random\?api_key\=${API_KEY}\&tag\=${SEARCH} | jq .data.url | tr -d \")
           echo "::set-output name=url::${URL}"
       - name: Test
-        run: echo 'The result was ${{ steps.giphy_url.outputs.url }}.'
+        run: echo 'The result was ${{ steps.giphy_url.outputs.url }}'
+  pr:
+    name: Create/Update the PR
+    steps:
+      - name: Create a PR if it does not exists
+        uses: elgohr/Github-Hub-Action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
+        run: "ff"
+
+      - name: Create a PR if it does not exists
+        uses: elgohr/Github-Hub-Action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          args: "pull-request \
+          -b master \
+          --no-edit \
+          'test title' -m 'GIF \n <hr />\n <ul><li>one</li></ul>' \
+          || true"
