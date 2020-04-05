@@ -33,4 +33,11 @@ jobs:
         run: |
           ls -la
           PR_TITLE="test title"
-          hub pull-request -b master -m "${PR_TITLE}\n\n![GIF](${{ steps.giphy_url.outputs.url }}) \n <hr />\n <ul><li>one</li></ul>" || true
+          PR_DESC="![GIF](${{ steps.giphy_url.outputs.url }})
+          <hr />
+
+          <ul><li>one</li></ul>"
+          MESSAGE="${PR_TITLE}
+
+          ${PR_MESSAGE}"
+          hub pull-request -b master -m "${MESSAGE}" || true
