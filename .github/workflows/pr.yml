@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install hub
-      uses: geertvdc/setup-hub@master
+        uses: geertvdc/setup-hub@master
 
       - name:  Create a PR if it does not exists
         run: |
