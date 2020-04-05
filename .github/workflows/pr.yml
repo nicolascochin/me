@@ -6,15 +6,7 @@ jobs:
     name: Find a funny Gif
     runs-on: ubuntu-latest
     steps:
-      - name: Get a random url
-        shell: bash
-        id: giphy_url
-        env:
-          API_KEY: ${{ secrets.GIPHY_API_KEY }}
-        run: |
-          SEARCH="failure"
-          URL=$(curl -s https://api.giphy.com/v1/gifs/random\?api_key\=${API_KEY}\&tag\=${SEARCH} | jq .data.url | tr -d \")
-          echo "::set-output name=url::${URL}"
+
       - name: Test
         run: echo 'The result was ${{ steps.giphy_url.outputs.url }}'
   pr:
@@ -24,7 +16,15 @@ jobs:
       - uses: actions/checkout@v2
       - name: Install hub
         uses: geertvdc/setup-hub@master
-
+      - name: Get a random GIF url
+        shell: bash
+        id: giphy_url
+        env:
+          API_KEY: ${{ secrets.GIPHY_API_KEY }}
+        run: |
+          SEARCH="failure"
+          URL=$(curl -s https://api.giphy.com/v1/gifs/random\?api_key\=${API_KEY}\&tag\=${SEARCH} | jq .data.url | tr -d \")
+          echo "::set-output name=url::${URL}"
       - name:  Create a PR if it does not exists
         shell: bash
         env:
@@ -33,4 +33,4 @@ jobs:
         run: |
           ls -la
           PR_TITLE="test title"
-          (echo "${PR_TITLE}" | hub pull-request -b master -m "GIF \n <hr />\n <ul><li>one</li></ul>") || true
+          hub pull-request -b master -m "${PR_TITLE}\n\n![GIF](${{ steps.giphy_url.outputs.url }}) \n <hr />\n <ul><li>one</li></ul>" || true
