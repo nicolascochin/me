@@ -31,6 +31,7 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    "@/plugins/eventBus",
     "@/plugins/export_moment",
     "@/plugins/export_i18n",
   ],
@@ -82,6 +83,7 @@ export default {
     defaultLocale: 'fr',
     strategy: 'prefix_except_default',
     lazy: true,
+    seo: false,
     langDir: 'lang/',
     beforeLanguageSwitch: (oldLocale, newLocale) => console.log('fdfklsjflksdjfklsdjlkjsdkl'),
     onLanguageSwitched: (oldLocale, newLocale) => console.log(`dhskqjdhjkqshdkjqshkjd -- [${newLocale}]`)
