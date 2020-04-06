@@ -70,3 +70,9 @@ jobs:
         run: |
           LIST=$(git log origin/${{ steps.target.outputs.destination_branch }}..origin/${{ steps.target.outputs.current_branch }} --pretty=oneline --abbrev-commit | sed 's/^[a-zA*Z0-9]* //')
           echo "::set-output name=list::${LIST}"
+      - name: Waiting for Netlify Preview
+        uses: josephduffy/wait-for-netlify-action@v1
+        id: wait-for-netflify-preview
+        with:
+          site_name: "nicolascochin"
+          max_timeout: 60
