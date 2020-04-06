@@ -8,9 +8,9 @@
 
 <script lang="ts">
 import {Component, Vue}  from 'nuxt-property-decorator'
-import AppNavigationDrawer from "@/components/layout/AppNavigationDrawer.vue";
-import AppMenuBar from "@/components/layout/AppMenuBar.vue";
-import AppContent from "@/components/layout/AppContent.vue";
+import AppNavigationDrawer from "@/components/ui/layout/AppNavigationDrawer.vue";
+import AppMenuBar from "@/components/ui/layout/AppMenuBar.vue";
+import AppContent from "@/components/ui/layout/AppContent.vue";
 
 @Component({
   components: {
