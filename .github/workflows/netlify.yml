@@ -14,6 +14,12 @@ jobs:
         with:
           site_name: "nicolascochin"
           max_timeout: 60
+      - name: Waiting for Netlify Preview
+        uses: josephduffy/wait-for-netlify-action@v1
+        id: wait-for-netflify-preview
+        with:
+          site_name: "nicolascochin"
+          max_timeout: 60
       - name: Audit URLs using Lighthouse
         uses: treosh/lighthouse-ci-action@v2
         with:
