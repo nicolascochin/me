@@ -2,22 +2,30 @@ name: Netlify
 on:
   pull_request:
     types: [opened, synchronize]
-
+env:
+  NETLIFY_SITE: nicolascochin
 jobs:
   netlify:
     name: Check Netlify
     runs-on: ubuntu-latest
     steps:
+      - name: Find the PR number
+        shell: bash
+        id: current-pr
+        run: |
+          pull_number=$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
+          echo "::set-output name=number::${pull_number}"
+
       - name: Waiting for the Netlify Preview
         uses: jakepartusch/wait-for-netlify-action@v1
         id: netlify
         with:
-          site_name: "nicolascochin"
+          site_name: ${NETLIFY_SITE}
           max_timeout: 60
       - name: Audit URLs using Lighthouse
         uses: treosh/lighthouse-ci-action@v2
         with:
           urls: |
-            ${{ steps.netlify.outputs.url }}
-            ${{ steps.netlify.outputs.url }}/resume
+            https://deploy-preview-${{ steps.current-pr.outputs.number }}--${NETLIFY_SITE}.netlify.com
+            https://deploy-preview-${{ steps.current-pr.outputs.number }}--${NETLIFY_SITE}.netlify.com/resume
           uploadArtifacts: true # save results as an action artifacts
