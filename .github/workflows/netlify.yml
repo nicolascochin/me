@@ -1,0 +1,23 @@
+name: Netlify
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  netlify:
+    name: Check Netlify
+    runs-on: ubuntu-latest
+    steps:
+      - name: Waiting for the Netlify Preview
+        uses: jakepartusch/wait-for-netlify-action@v1
+        id: netlify
+        with:
+          site_name: "nicolascochin"
+          max_timeout: 60
+      - name: Audit URLs using Lighthouse
+        uses: treosh/lighthouse-ci-action@v2
+        with:
+          urls: |
+            ${{ steps.netlify.outputs.url }}
+            ${{ steps.netlify.outputs.url }}/resume
+          uploadArtifacts: true # save results as an action artifacts
