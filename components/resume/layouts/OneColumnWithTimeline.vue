@@ -9,16 +9,13 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from "nuxt-property-decorator";
-import ExperienceTimeline from "@/components/resume/experiences/ExperienceTimeline.vue";
-import SimpleSection from "@/components/resume/SimpleSection.vue";
-import Me from "@/components/resume/me/Me.vue";
 import Resume from "@/models/Resume";
 
 @Component({
   components: {
-    ExperienceTimeline,
-    SimpleSection,
-    Me,
+    ExperienceTimeline: () => import("@/components/resume/experiences/ExperienceTimeline.vue"),
+    SimpleSection: () => import("@/components/resume/SimpleSection.vue"),
+    Me: () => import("@/components/resume/me/Me.vue"),
   }
 })
 export default class OneColumnWithTimelineLayout extends Vue {

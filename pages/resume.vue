@@ -5,12 +5,11 @@
 
 <script lang="ts">
 import { Component, Vue } from "nuxt-property-decorator";
-import OneColumnLayout from "@/components/resume/layouts/OneColumnWithTimeline.vue";
 import Resume from "@/models/Resume";
 
 @Component({
   components: {
-    OneColumnLayout
+    OneColumnLayout: () => import("@/components/resume/layouts/OneColumnWithTimeline.vue"),
   }
 })
 export default class PageResume extends Vue {
