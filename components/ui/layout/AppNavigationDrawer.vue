@@ -17,6 +17,7 @@
         nuxt
         :to="localePath({name: item.route})"
         active-class="primary--text"
+        exact
       >
         <v-list-item-icon>
           <v-tooltip right>

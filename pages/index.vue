@@ -10,7 +10,6 @@
       md6
     >
       <div class="text-center">
-        <logo />
         <vuetify-logo />
       </div>
       <v-card>
