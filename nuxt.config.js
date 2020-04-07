@@ -12,6 +12,7 @@ export default {
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
+      { rel: "preconnect", href: "https://fonts.gstatic.com/", crossorigin: "crossorigin" },
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
