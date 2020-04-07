@@ -24,7 +24,7 @@
             <template v-slot:activator="{ on }">
               <v-icon large v-on="on">{{ item.icon }}</v-icon>
             </template>
-            <span>{{ item.title }}</span>
+            <span>{{ $t(item.title) }}</span>
           </v-tooltip>
         </v-list-item-icon>
 
@@ -44,8 +44,8 @@ import ResponsiveMixin from "@/mixins/ResponsiveMixin";
 @Component
 export default class AppNavigationDrawer extends mixins(ResponsiveMixin) {
   private items:any[] =  [
-    { title: 'Accueil', icon: mdiHome, route: 'index' },
-    { title: 'Mon CV', icon: mdiBadgeAccountHorizontalOutline, route: 'resume' },
+    { title: 'pages.home.tooltip',   icon: mdiHome, route: 'index' },
+    { title: 'pages.resume.tooltip', icon: mdiBadgeAccountHorizontalOutline, route: 'resume' },
   ]
 
   private drawer: boolean = true;
