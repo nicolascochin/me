@@ -4,6 +4,9 @@ export default {
   and: 'and',
   year:  'year | years',
   month: 'month | months',
+  see_in: {
+    fr: 'Voir en francais',
+  },
   $vuetify: {
     ...en
   },
