@@ -7,6 +7,7 @@
       link
       :href="item.value"
       target="_blank"
+      rel="noopener"
       :selectable="false"
       dense
     >
