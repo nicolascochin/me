@@ -13,7 +13,6 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from "nuxt-property-decorator";
-import ExperienceMixin from "@/mixins/ExperienceMixin";
 import ExperienceTimelineItem from "./ExperienceTimelineItem.vue";
 import Experiences from "@/models/Experiences";
 

@@ -1,6 +1,3 @@
-import colors from 'vuetify/es5/util/colors'
-import momentFork from 'moment';
-
 export default {
   mode: 'universal',
   /*
@@ -31,6 +28,7 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    "@/plugins/eventBus",
     "@/plugins/export_moment",
     "@/plugins/export_i18n",
   ],
@@ -76,15 +74,14 @@ export default {
   },
   i18n: {
     locales: [
-      { code: 'en', iso: 'en-US', file: 'en.js' },
-      { code: 'fr', iso: 'fr-FR', file: 'fr.js' },
+      { code: 'en', name: 'English', iso: 'en-US', file: 'en.js' },
+      { code: 'fr', name: 'Français', iso: 'fr-FR', file: 'fr.js' },
     ],
     defaultLocale: 'fr',
     strategy: 'prefix_except_default',
     lazy: true,
+    seo: false,
     langDir: 'lang/',
-    beforeLanguageSwitch: (oldLocale, newLocale) => console.log('fdfklsjflksdjfklsdjlkjsdkl'),
-    onLanguageSwitched: (oldLocale, newLocale) => console.log(`dhskqjdhjkqshdkjqshkjd -- [${newLocale}]`)
   },
   webfontloader: {
     google: {
@@ -123,11 +120,12 @@ export default {
     ** You can extend webpack config here
     */
     extend (config, ctx) {
-      // if (ctx && ctx.isClient) {
-      //   config.optimization.splitChunks.maxSize = 51200
-      // }
       if (ctx && ctx.isClient) {
-        config.optimization.splitChunks.maxSize = 51200 * 18      }
+        config.optimization.splitChunks.maxSize = 51200
+      }
+      // if (ctx && ctx.isClient) {
+      //   config.optimization.splitChunks.maxSize = 51200 * 18
+      // }
     }
   }
 }
