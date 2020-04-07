@@ -2,6 +2,7 @@ name: Manage Pull Request
 on:
   push:
     branches:
+    - '**'
     - '!master'
 env:
   DEV_BRANCH: "develop"
