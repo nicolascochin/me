@@ -6,6 +6,7 @@
     <v-toolbar-title></v-toolbar-title>
     <v-spacer></v-spacer>
     <v-toolbar-items>
+      <LanguageSelect />
     </v-toolbar-items>
   </v-app-bar>
 </template>
@@ -14,8 +15,13 @@
 import { Component, mixins, Vue } from "nuxt-property-decorator";
 import ResponsiveMixin from "@/mixins/ResponsiveMixin";
 import { mdiMenu } from "@mdi/js";
+import LanguageSelect from "@/components/ui/LanguageSelect.vue";
 
-@Component
+@Component({
+  components: {
+    LanguageSelect
+  }
+})
 export default class AppMenuBar extends mixins(ResponsiveMixin)  {
   private icon: string = mdiMenu;
 
