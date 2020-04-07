@@ -5,34 +5,36 @@
     :mini-variant-width="90"
     v-model="drawer"
   >
-    <v-list
-      dense
-      nav
-      flat
-    >
-      <v-list-item
-        v-for="item in items"
-        :key="item.title"
-        link
-        nuxt
-        :to="localePath({name: item.route})"
-        active-class="primary--text"
-        exact
+    <div style="height: 100%" class="d-flex flex-column justify-center">
+      <v-list
+        dense
+        nav
+        flat
       >
-        <v-list-item-icon>
-          <v-tooltip right>
-            <template v-slot:activator="{ on }">
-              <v-icon large v-on="on">{{ item.icon }}</v-icon>
-            </template>
-            <span>{{ $t(item.title) }}</span>
-          </v-tooltip>
-        </v-list-item-icon>
+        <v-list-item
+          v-for="item in items"
+          :key="item.title"
+          link
+          nuxt
+          :to="localePath({name: item.route})"
+          active-class="primary--text"
+          exact
+        >
+          <v-list-item-icon>
+            <v-tooltip right>
+              <template v-slot:activator="{ on }">
+                <v-icon large v-on="on">{{ item.icon }}</v-icon>
+              </template>
+              <span>{{ $t(item.title) }}</span>
+            </v-tooltip>
+          </v-list-item-icon>
 
-        <v-list-item-content>
-          <v-list-item-title>{{ item.title }}</v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
-    </v-list>
+          <v-list-item-content>
+            <v-list-item-title>{{ item.title }}</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </div>
   </v-navigation-drawer>
 </template>
 
