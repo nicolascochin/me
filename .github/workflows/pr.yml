@@ -1,6 +1,8 @@
 name: Manage Pull Request
 on: [push]
 
+env:
+  DEV_BRANCH: "develop"
 jobs:
   pr:
     name: Create/Update the PR
@@ -27,13 +29,13 @@ jobs:
         run: |
           BRANCH_SOURCE=$(echo "${{ github.ref }}" | rev | cut -d'/' -f 1 | rev)
           echo "head ref ${BRANCH_SOURCE}"
-          if [[ "${BRANCH_SOURCE}" = "master" ]]
+          if [[ "${BRANCH_SOURCE}" = "${DEV_BRANCH}" ]]
           then
-            DEST="production"
+            DEST="master"
             TITLE="https://www.estcequonmetenprodaujourdhui.info"
             LABEL="next release"
             else
-            DEST="master"
+            DEST="${DEV_BRANCH}"
             TITLE="${BRANCH_SOURCE}"
             LABEL="wip"
           fi
