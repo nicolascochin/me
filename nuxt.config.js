@@ -13,6 +13,7 @@ export default {
     ],
     link: [
       { rel: "preconnect", href: "https://fonts.gstatic.com/", crossorigin: "true" },
+      { rel: "preconnect", href: "https://fonts.googleapis.com/", crossorigin: "true" },
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
