@@ -1,9 +1,13 @@
 <template>
-  <v-list dense>
-    <v-list-item-group color="primary">
+  <v-list dense flat>
+    <v-list-item-group >
       <v-list-item
         v-for="(item, i) in items"
         :key="i"
+        :ripple="false"
+        link
+        :href="item.value"
+        target="_blank"
       >
         <v-list-item-icon>
           <v-icon>{{item.icon}}</v-icon>

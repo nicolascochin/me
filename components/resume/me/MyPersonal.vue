@@ -1,9 +1,11 @@
 <template>
-  <v-list dense>
+  <v-list dense flat>
     <v-list-item-group color="primary">
       <v-list-item
         v-for="(item, i) in items"
         :key="i"
+        :ripple="false"
+        :selectable="true"
       >
         <v-list-item-icon>
           <v-icon>{{item.icon}}</v-icon>
