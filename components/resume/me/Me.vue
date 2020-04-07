@@ -30,9 +30,9 @@ import MeModel from "@/models/Me";
 
 @Component({
   components: {
-    MyAvatar,
-    MyContact,
-    MyPersonal,
+    MyAvatar: () => import("./MyAvatar.vue"),
+    MyContact: () => import("./MyContact.vue"),
+    MyPersonal: () => import("./MyPersonal.vue"),
   }
 })
 export default class Me extends Vue {

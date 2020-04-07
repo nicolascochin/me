@@ -13,12 +13,11 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from "nuxt-property-decorator";
-import ExperienceTimelineItem from "./ExperienceTimelineItem.vue";
 import Experiences from "@/models/Experiences";
 
 @Component({
   components: {
-    ExperienceTimelineItem,
+    ExperienceTimelineItem: () => import("./ExperienceTimelineItem.vue"),
   }
 })
 export default class ExperienceTimeline extends Vue {
