@@ -32,9 +32,13 @@ export default class MyPersonal extends Vue {
 
   private items: Array<IPersonal> = [
     { icon: mdiRemote, value: this.translate('remote')},
-    { icon: mdiBriefcase, value: this.translatec('xp', 2)},
+    { icon: mdiBriefcase, value: this.translatec('xp', this.numberYearsOfXp)},
     { icon: mdiHome, value: this.translate('home')},
   ]
+
+  private get numberYearsOfXp(): number {
+    return new Date().getFullYear() - 2004;
+  }
 
   private translate(key: string): VueI18n.TranslateResult {
     return this.$t(`${MyPersonal.i18nPrefix}.${key}`)

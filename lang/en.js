@@ -21,7 +21,7 @@ export default {
   resume: {
     me: {
       personal: {
-        remote: 'working full remote',
+        remote: 'Working full remote',
         xp: "no experience | one year experience | {count} years experience",
         home: 'Menthon saint Bernard, 74290, France',
       },

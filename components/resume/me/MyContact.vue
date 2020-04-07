@@ -18,7 +18,7 @@
 
 <script lang="ts">
 import { Component, Vue } from "nuxt-property-decorator";
-import { mdiGithub, mdiLinkedin, mdiEmail } from "@mdi/js";
+import { mdiWeb, mdiGithub, mdiLinkedin, mdiEmail } from "@mdi/js";
 interface IContact {
   icon: string,
   value: string
@@ -27,6 +27,7 @@ interface IContact {
 @Component
 export default class MyContact extends Vue {
   private items: Array<IContact> = [
+    { icon: mdiWeb, value: 'https://nicolas.coch.in'},
     { icon: mdiGithub, value: 'https://github.com/nicolascochin'},
     { icon: mdiLinkedin, value: 'https://www.linkedin.com/in/nicolascochin/'},
     { icon: mdiEmail, value: 'email me'},
