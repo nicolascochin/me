@@ -4,6 +4,7 @@ on:
     branches:
     - '**'
     - '!master'
+    - '!dependabot/**'
 env:
   DEV_BRANCH: "develop"
 jobs:
@@ -62,16 +63,16 @@ jobs:
 
           ${PR_DESC}"
           hub pull-request -b "${{ steps.target.outputs.destination_branch }}" -l "${{ steps.target.outputs.label }}" -m "${MESSAGE}"  || true
-      - name: Find the PR number
-        shell: bash
-        env:
-          GITHUB_USER: ${{ secrets.GITHUB_USER }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          hub pr list --head ${{ steps.target.outputs.current_branch }} --base ${{ steps.target.outputs.destination_branch }} -f '%I'
-      - name:  Find the commits to merge
-        shell: bash
-        id: commits
-        run: |
-          LIST=$(git log origin/${{ steps.target.outputs.destination_branch }}..origin/${{ steps.target.outputs.current_branch }} --pretty=oneline --abbrev-commit | sed 's/^[a-zA*Z0-9]* //')
-          echo "::set-output name=list::${LIST}"
+      # - name: Find the PR number
+      #   shell: bash
+      #   env:
+      #     GITHUB_USER: ${{ secrets.GITHUB_USER }}
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   run: |
+      #     hub pr list --head ${{ steps.target.outputs.current_branch }} --base ${{ steps.target.outputs.destination_branch }} -f '%I'
+      # - name:  Find the commits to merge
+      #   shell: bash
+      #   id: commits
+      #   run: |
+      #     LIST=$(git log origin/${{ steps.target.outputs.destination_branch }}..origin/${{ steps.target.outputs.current_branch }} --pretty=oneline --abbrev-commit | sed 's/^[a-zA*Z0-9]* //')
+      #     echo "::set-output name=list::${LIST}"
