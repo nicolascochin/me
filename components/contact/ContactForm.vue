@@ -1,6 +1,6 @@
 <template>
   <ValidationObserver ref="observer" v-slot="{ handleSubmit }">
-    <v-form ref="form" @submit.prevent="handleSubmit()">
+    <form netlify ref="form" @submit.prevent="handleSubmit()">
       <ValidationProvider rules="required|email" :name="$t('contact.from').toLowerCase()" v-slot="{ errors }">
         <v-text-field
           v-model="from"
@@ -27,7 +27,7 @@
       >
         {{$t('contact.validate')}}
       </v-btn>
-    </v-form>
+    </form>
   </ValidationObserver>
 </template>
 
