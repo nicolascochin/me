@@ -8,7 +8,6 @@
           :label = "$t('contact.from')"
           :placeholder = "$t('contact.yourEmail')"
           :error-messages="errors"
-          required
           clearable
           autofocus
         />
@@ -20,7 +19,6 @@
           :placeholder = "$t('contact.yourMessage')"
           :error-messages="errors"
           clearable
-          required
         />
       </ValidationProvider>
       <v-btn
