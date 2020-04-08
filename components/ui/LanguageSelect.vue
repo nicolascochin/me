@@ -6,6 +6,7 @@
         nuxt
         link
         icon
+        :aria-label="$t(`see_in.${availableLocale.code}`)"
         :to="switchLocalePath(availableLocale.code)"
       >
         <v-icon>{{icon}}</v-icon>

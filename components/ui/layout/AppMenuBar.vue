@@ -1,6 +1,6 @@
 <template>
   <v-app-bar app dense :elevation="0" color="white">
-    <v-app-bar-nav-icon v-show="isMobile" @click="onNavBarIcon">
+    <v-app-bar-nav-icon v-show="isMobile" @click="onNavBarIcon" aria-label="Aside menu toogle">
       <v-icon >{{icon}}</v-icon>
     </v-app-bar-nav-icon>
     <v-toolbar-title></v-toolbar-title>

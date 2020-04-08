@@ -1,23 +1,23 @@
-import { Moment } from 'moment';
-import { PreciseRangeValueObject } from "moment-precise-range-plugin";
+// import { Moment } from 'moment';
+// import { PreciseRangeValueObject } from "moment-precise-range-plugin";
 import Base from "./Base"
 import VueI18n from 'vue-i18n'
 
 export default class Experience extends Base {
-  public momentStart!: Moment;
-  public momentEnd!: Moment;
+  public momentStart!: Date;
+  public momentEnd!: Date;
 
   constructor(public i18nKey: string) {
     super()
-    this.momentStart = this.moment.utc(this.getExperienceKey('start'), "MM-YYYY");
-    this.momentEnd = this.moment.utc(this.getExperienceKey('end'), "MM-YYYY");
+    this.momentStart = new Date(Date.parse(this.getExperienceKey('start') as string));
+    this.momentEnd = new Date(Date.parse(this.getExperienceKey('end') as string));
   }
 
-  public get startHuman(): string {
+  public get startHuman(): VueI18n.TranslateResult {
     return this.formatDateMonthYear(this.momentStart)
   }
 
-  public get endHuman(): string {
+  public get endHuman(): VueI18n.TranslateResult {
     return this.formatDateMonthYear(this.momentEnd)
   }
 
@@ -49,15 +49,19 @@ export default class Experience extends Base {
     return `${yearsString} ${years && months ? ` ${this.t('and')} ` : ''} ${monthsString}`;
   }
 
-  private get durationObject(): PreciseRangeValueObject {
-    return this.moment.preciseDiff(this.momentStart, this.momentEnd, true);
+  private get durationObject(): any {
+    const diff: Date = new Date(this.momentEnd.getTime() - this.momentStart.getTime())
+    return {
+      years: diff.getFullYear() - 1970,
+      months: diff.getMonth() + 1,
+    };
   }
 
   private getExperienceKey(key: string): VueI18n.TranslateResult {
     return this.t(`resume.experience.experiences.${this.i18nKey}.${key}`)
   }
 
-  private formatDateMonthYear(date: Moment): string {
-    return date.format('MMMM YYYY');
+  private formatDateMonthYear(date: Date): VueI18n.TranslateResult {
+    return this.d(date, 'monthAndYear')
   }
 }

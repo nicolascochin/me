@@ -11,6 +11,18 @@ export default {
   $vuetify: {
     ...fr
   },
+  // dateTimeFormats: {
+  //   short: {
+  //     day: 'numeric', month: 'short', year: 'numeric'
+  //   },
+  //   monthAndYear: {
+  //     month: 'short', year: 'numeric'
+  //   },
+  //   long: {
+  //     year: 'numeric', month: 'short', day: 'numeric',
+  //     weekday: 'short', hour: 'numeric', minute: 'numeric', hour12: false
+  //   }
+  // },
   pages: {
     home: {
       tooltip: 'Accueil',
@@ -46,8 +58,8 @@ export default {
           location: 'Paris (France)',
           position: 'Java Software engineer',
           company: 'Crédit agricole CIB',
-          start: '5-2006',
-          end: '8-2007',
+          start: '2006-05',
+          end: '2007-08',
           tags: ['java', 'jUnit'],
           description: `<p>todo</p>
           `,
@@ -56,8 +68,8 @@ export default {
           location: 'Melbourne (Australie)',
           position: 'Java Software engineer',
           company: 'Thales ATM',
-          start: '11-2004',
-          end: '05-2006',
+          start: '2004-11',
+          end: '2006-05',
           tags: ['java', 'jUnit'],
           description: `<p>TODO</p>
           `,
