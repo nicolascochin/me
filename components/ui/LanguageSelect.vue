@@ -6,10 +6,10 @@
         nuxt
         link
         icon
+        :aria-label="$t(`see_in.${availableLocale.code}`)"
         :to="switchLocalePath(availableLocale.code)"
       >
         <v-icon>{{icon}}</v-icon>
-        <span class="d-none">{{ $t(`see_in.${availableLocale.code}`) }}</span>
       </v-btn>
     </template>
     <span>{{ $t(`see_in.${availableLocale.code}`) }}</span>
