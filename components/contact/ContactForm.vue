@@ -1,10 +1,11 @@
 <template>
-  <ValidationObserver ref="observer">
+  <ValidationObserver ref="observer" v-slot="{ handleSubmit }">
     <form
       data-netlify="true"
       data-netlify-honeypot="bot-field"
       name="contact"
       ref="form"
+      @submit.prevent="handleSubmit(send)"
     >
       <input type="hidden" name="form-name" value="contact" />
       <ValidationProvider rules="required|email" :name="$t('contact.from').toLowerCase()" v-slot="{ errors }">
@@ -50,11 +51,28 @@ export default class ContactForm extends Vue {
   private from: string = ""
   private message: string = ""
 
-  private async onSend() {
-    const isValid: boolean = await (this.$refs.observer as any).validate()
-    if (isValid) {
-      (this.$refs.form as any).submit()
+  private get dataToSend(): any {
+    return {
+      from: this.from,
+      message: this.message
     }
+  }
+
+  private get dataEncoded() {
+    return Object.keys(this.dataToSend)
+      .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(this.dataToSend[key]))
+       .join('&')
+  }
+
+  private send() {
+    const options: any = {
+      header: { "Content-Type": "application/x-www-form-urlencoded" }
+    }
+    this.$axios.$post(
+      "/",
+      this.dataEncoded,
+      options,
+    )
   }
 }
 </script>
