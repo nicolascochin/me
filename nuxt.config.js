@@ -32,6 +32,7 @@ export default {
   plugins: [
     "@/plugins/eventBus",
     "@/plugins/export_i18n",
+    "@/plugins/vee-validate",
   ],
   /*
   ** Nuxt.js dev-modules
@@ -137,6 +138,9 @@ export default {
   */
   build: {
     // extractCSS: true,
+    transpile: [
+      'vee-validate'
+    ],
     /*
     ** You can extend webpack config here
     */
