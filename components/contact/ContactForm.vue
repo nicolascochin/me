@@ -9,7 +9,7 @@
       <v-text-field
         class="d-none"
         v-model="botField"
-        :label = "bot"
+        label = "bot"
       />
       <ValidationProvider rules="required|email" :name="$t('contact.from').toLowerCase()" v-slot="{ errors }">
         <v-text-field
@@ -31,7 +31,6 @@
         />
       </ValidationProvider>
       <v-btn
-        @click="onSend"
         type="submit"
       >
         {{$t('contact.validate')}}
@@ -75,11 +74,11 @@ export default class ContactForm extends Vue {
     const options: any = {
       header: { "Content-Type": "application/x-www-form-urlencoded" }
     }
-    const result: any = await this.$axios.$post(
+    this.$axios.$post(
       "/",
       this.dataEncoded,
       options,
-    )
+    ).then(() => console.log('FINISH'))
   }
 }
 </script>
