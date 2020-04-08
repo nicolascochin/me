@@ -73,13 +73,11 @@ export default class ContactForm extends Vue {
   }
 
   private async send() {
-    console.log(this.$axios.defaults)
-    return
     const options: any = {
       header: { "Content-Type": "application/x-www-form-urlencoded" }
     }
     this.$axios.$post(
-      "/",
+      `${window.location.protocol}//${window.location.hostname}/`,
       this.dataEncoded,
       options,
     ).then(() => console.log('FINISH'))
