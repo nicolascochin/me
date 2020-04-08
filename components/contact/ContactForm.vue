@@ -29,6 +29,7 @@
       </ValidationProvider>
       <v-btn
         @click="onSend"
+        type="submit"
       >
         {{$t('contact.validate')}}
       </v-btn>
