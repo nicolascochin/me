@@ -31,7 +31,6 @@ export default {
   */
   plugins: [
     "@/plugins/eventBus",
-    "@/plugins/export_moment",
     "@/plugins/export_i18n",
   ],
   /*
@@ -46,7 +45,6 @@ export default {
   */
   modules: [
     'nuxt-i18n',
-    '@nuxtjs/moment',
     'nuxt-webfontloader',
   ],
   /*
@@ -67,18 +65,39 @@ export default {
   /*
   ** @nuxtjs/moment config
   */
-  moment: {
-    locales: ['fr'],
-    defaultLocale: 'fr',
-    plugins: [
-      'moment-precise-range-plugin',
-    ]
-  },
   i18n: {
     locales: [
       { code: 'en', name: 'English', iso: 'en-US', file: 'en.js' },
       { code: 'fr', name: 'Français', iso: 'fr-FR', file: 'fr.js' },
     ],
+    vueI18n: {
+      dateTimeFormats: {
+        'en': {
+          short: {
+            year: 'numeric', month: 'short', day: 'numeric'
+          },
+          monthAndYear: {
+            month: 'long', year: 'numeric'
+          },
+          long: {
+            year: 'numeric', month: 'short', day: 'numeric',
+            weekday: 'short', hour: 'numeric', minute: 'numeric'
+          }
+        },
+        'fr': {
+          short: {
+            day: 'numeric', month: 'short', year: 'numeric'
+          },
+          monthAndYear: {
+            month: 'long', year: 'numeric'
+          },
+          long: {
+            year: 'numeric', month: 'short', day: 'numeric',
+            weekday: 'short', hour: 'numeric', minute: 'numeric', hour12: false
+          }
+        }
+      }
+    },
     defaultLocale: 'fr',
     strategy: 'prefix_except_default',
     lazy: true,
