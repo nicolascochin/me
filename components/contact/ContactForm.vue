@@ -4,8 +4,10 @@
       data-netlify="true"
       data-netlify-honeypot="bot-field"
       ref="form"
+      name="contact"
       @submit.prevent="handleSubmit(send)"
     >
+      <input type="hidden" name="form-name" value="contact" />
       <v-text-field
         class="d-none"
         v-model="botField"
