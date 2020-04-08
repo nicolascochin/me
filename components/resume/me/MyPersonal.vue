@@ -1,18 +1,18 @@
 <template>
-  <v-list dense>
-    <v-list-item-group color="primary">
-      <v-list-item
-        v-for="(item, i) in items"
-        :key="i"
-      >
-        <v-list-item-icon>
-          <v-icon>{{item.icon}}</v-icon>
-        </v-list-item-icon>
-        <v-list-item-content>
-          <v-list-item-title v-text="item.value"></v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
-    </v-list-item-group>
+  <v-list dense flat>
+    <v-list-item
+      v-for="(item, i) in items"
+      :key="i"
+      :ripple="false"
+      :selectable="true"
+    >
+      <v-list-item-icon>
+        <v-icon>{{item.icon}}</v-icon>
+      </v-list-item-icon>
+      <v-list-item-content>
+        <v-list-item-title v-text="item.value"></v-list-item-title>
+      </v-list-item-content>
+    </v-list-item>
   </v-list>
 </template>
 
