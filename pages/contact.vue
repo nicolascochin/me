@@ -7,11 +7,10 @@
 
 <script lang="ts">
 import { Component, Vue } from "nuxt-property-decorator";
-import ContactForm from "@/components/contact/ContactForm.vue"
 
 @Component({
   components: {
-    ContactForm,
+    ContactForm: () => import("@/components/contact/ContactForm.vue"),
   }
 })
 export default class PageContact extends Vue {
