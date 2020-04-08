@@ -1,6 +1,6 @@
 <template>
   <ValidationObserver ref="observer" v-slot="{ handleSubmit }">
-    <form netlify name="contact" ref="form" @submit.prevent="handleSubmit()">
+    <form netlify name="contact" ref="form" @submit.prevent="handleSubmit(send)">
       <input type="hidden" name="form-name" value="contact" />
       <ValidationProvider rules="required|email" :name="$t('contact.from').toLowerCase()" v-slot="{ errors }">
         <v-text-field
@@ -44,5 +44,24 @@ import { ValidationProvider, ValidationObserver } from 'vee-validate';
 export default class ContactForm extends Vue {
   private from: string = ""
   private message: string = ""
+
+  private encode(data: any) {
+    return Object.keys(data)
+      .map(
+        key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`
+      )
+      .join("&");
+  }
+
+  private send() {
+    const options: any = {
+      header: { "Content-Type": "application/x-www-form-urlencoded" }
+    }
+    this.$axios.$post(
+      "/",
+      this.encode(this.$refs.form),
+      options,
+    )
+  }
 }
 </script>

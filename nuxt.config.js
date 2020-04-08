@@ -45,9 +45,13 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
+    '@nuxtjs/axios',
     'nuxt-i18n',
     'nuxt-webfontloader',
   ],
+  axios: {
+    // proxyHeaders: false
+  },
   /*
   ** Nuxt.js hooks (unused thanks to defaultAssets: false,)
   */
