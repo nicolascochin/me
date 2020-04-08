@@ -8,11 +8,16 @@
       @submit.prevent="handleSubmit(send)"
     >
       <input type="hidden" name="form-name" value="contact" />
-      <v-text-field
+      <div
         class="d-none"
-        v-model="botField"
-        label = "bot"
-      />
+      >
+        <v-text-field v-model="botField" label="bot"/>
+        <!-- netlify need names -->
+        <input name="title" type="text" />
+        <input name="email" type="email" />
+        <input name="summary" type="text" />
+        <input name="botField" type="text" />
+      </div>
       <ValidationProvider rules="required|email" :name="$t('contact.from').toLowerCase()" v-slot="{ errors }">
         <v-text-field
           v-model="from"
@@ -70,7 +75,7 @@ export default class ContactForm extends Vue {
   private get dataEncoded() {
     return Object.keys(this.dataToSend)
       .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(this.dataToSend[key]))
-       .join('&')
+      .join('&')
   }
 
   private async send() {
