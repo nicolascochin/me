@@ -3,11 +3,14 @@
     <form
       data-netlify="true"
       data-netlify-honeypot="bot-field"
-      name="contact"
       ref="form"
       @submit.prevent="handleSubmit(send)"
     >
-      <input type="hidden" name="form-name" value="contact" />
+      <v-text-field
+        class="d-none"
+        v-model="botField"
+        :label = "bot"
+      />
       <ValidationProvider rules="required|email" :name="$t('contact.from').toLowerCase()" v-slot="{ errors }">
         <v-text-field
           v-model="from"
@@ -51,11 +54,14 @@ import { ValidationProvider, ValidationObserver } from 'vee-validate';
 export default class ContactForm extends Vue {
   private from: string = ""
   private message: string = ""
+  private botField: string = ""
 
   private get dataToSend(): any {
     return {
       from: this.from,
-      message: this.message
+      message: this.message,
+      'form-name': "contact",
+      'bot-field': this.botField
     }
   }
 
@@ -65,11 +71,11 @@ export default class ContactForm extends Vue {
        .join('&')
   }
 
-  private send() {
+  private async send() {
     const options: any = {
       header: { "Content-Type": "application/x-www-form-urlencoded" }
     }
-    this.$axios.$post(
+    const result: any = await this.$axios.$post(
       "/",
       this.dataEncoded,
       options,
