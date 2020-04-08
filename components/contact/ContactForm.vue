@@ -16,7 +16,7 @@
         <input name="title" type="text" />
         <input name="email" type="email" />
         <input name="summary" type="text" />
-        <input name="botField" type="text" />
+        <input name="bot-field" type="text" />
       </div>
       <ValidationProvider rules="required|email" :name="$t('contact.from').toLowerCase()" v-slot="{ errors }">
         <v-text-field
