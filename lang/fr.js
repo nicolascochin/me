@@ -30,6 +30,17 @@ export default {
     resume: {
       tooltip: 'Mon CV',
     },
+    contact: {
+      tooltip: 'Contactez moi',
+    },
+  },
+  contact: {
+    pageTitle: 'Contact',
+    from: 'Email',
+    yourEmail: 'Votre email',
+    message: 'Message',
+    yourMessage: 'Votre message',
+    validate: 'Envoyer'
   },
   resume: {
     me: {
