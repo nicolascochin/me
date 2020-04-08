@@ -59,8 +59,9 @@ export default class ContactForm extends Vue {
 
   private get dataToSend(): any {
     return {
-      from: this.from,
-      message: this.message,
+      title: 'TBD',
+      email: this.from,
+      summary: this.message,
       'form-name': "contact",
       'bot-field': this.botField
     }
