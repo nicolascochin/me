@@ -140,6 +140,10 @@ export default {
   render: {
     bundleRenderer: {
       shouldPreload: (file, type) => {
+        console.log('===============================')
+        console.log(`type: ${type} -- file: ${file}`)
+        console.log(['script', 'font', 'style'].includes(type))
+        console.log('===============================')
         return ['script', 'font', 'style'].includes(type)
       },
       // shouldPrefetch: (file, type) => {
