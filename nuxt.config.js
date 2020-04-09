@@ -141,7 +141,7 @@ export default {
   ** Build configuration
   */
   build: {
-    // extractCSS: true,
+    extractCSS: true,
     transpile: [
       'vee-validate'
     ],
