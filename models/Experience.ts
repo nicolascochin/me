@@ -9,8 +9,8 @@ export default class Experience extends Base {
 
   constructor(public i18nKey: string) {
     super()
-    this.momentStart = new Date(Date.parse(this.getExperienceKey('start') as string));
-    this.momentEnd = new Date(Date.parse(this.getExperienceKey('end') as string));
+    this.momentStart = this.parseDate("start")
+    this.momentEnd = this.parseDate("end")
   }
 
   public get startHuman(): VueI18n.TranslateResult {
@@ -55,6 +55,15 @@ export default class Experience extends Base {
       years: diff.getFullYear() - 1970,
       months: diff.getMonth() + 1,
     };
+  }
+
+  private parseDate(key: string): Date {
+    const translation = this.getExperienceKey(key)
+    if (translation) {
+      return new Date(Date.parse(this.getExperienceKey(key) as string))
+    } else {
+      return new Date()
+    }
   }
 
   private getExperienceKey(key: string): VueI18n.TranslateResult {

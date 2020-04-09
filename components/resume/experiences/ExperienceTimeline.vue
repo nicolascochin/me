@@ -1,6 +1,6 @@
 <template>
   <section>
-    <h2 class="resume section_title">{{data.title}}</h2>
+    <h3 class="resume section_title headline">{{data.title}}</h3>
     <v-timeline dense>
       <ExperienceTimelineItem
         v-for="experience in data.experiences"

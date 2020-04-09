@@ -1,8 +1,8 @@
 <template>
-  <article :class="classes">
-    <h2 class="resume section_title">{{data.title}}</h2>
+  <section :class="classes">
+    <h3 class="resume section_title headline">{{data.title}}</h3>
     <div v-html="data.content"></div>
-  </article>
+  </section>
 </template>
 
 <script lang="ts">

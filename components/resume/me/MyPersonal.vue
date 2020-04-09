@@ -1,19 +1,22 @@
 <template>
-  <v-list dense flat>
-    <v-list-item
-      v-for="(item, i) in items"
-      :key="i"
-      :ripple="false"
-      :selectable="true"
-    >
-      <v-list-item-icon>
-        <v-icon>{{item.icon}}</v-icon>
-      </v-list-item-icon>
-      <v-list-item-content>
-        <v-list-item-title v-text="item.value"></v-list-item-title>
-      </v-list-item-content>
-    </v-list-item>
-  </v-list>
+  <div style="width: 100%">
+    <h2 class="display-1 primary--text text-center text-md-left mb-4 mb-md-0">Nicolas COCHIN</h2>
+    <v-list dense flat class="pb-0 pb-md-2">
+      <v-list-item
+        v-for="(item, i) in items"
+        :key="i"
+        :ripple="false"
+        :selectable="true"
+      >
+        <v-list-item-icon>
+          <v-icon>{{item.icon}}</v-icon>
+        </v-list-item-icon>
+        <v-list-item-content>
+          <v-list-item-title v-text="item.value"></v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+    </v-list>
+  </div>
 </template>
 
 <script lang="ts">

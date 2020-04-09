@@ -1,20 +1,20 @@
 <template>
   <v-container>
     <v-row>
-      <v-col cols="12" md="4" class="d-flex justify-start" >
+      <v-col cols="12" md="4" class="d-flex justify-start order-md-0 pb-0 pb-md-3" >
         <MyPersonal />
       </v-col>
-      <v-col cols="12" md="4" class="d-flex justify-center">
-        <MyAvatar />
-      </v-col>
-      <v-col cols="12" md="4" class="d-flex justify-end">
+      <v-col cols="12" md="4" class="d-flex justify-md-end order-md-2 pt-0 pt-md-3">
         <MyContact />
+      </v-col>
+      <v-col cols="12" md="4" class="d-flex justify-center order-md-1">
+        <MyAvatar />
       </v-col>
     </v-row>
     <v-row>
       <v-col cols="12" class="d-flex flex-column align-center">
-        <span class="headline">{{ data.position }}</span>
-        <span class="title">{{ data.subPosition }}</span>
+        <h1 class="headline">{{ data.position }}</h1>
+        <h3 class="title">{{ data.subPosition }}</h3>
       </v-col>
     </v-row>
   </v-container>
