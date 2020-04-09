@@ -4,10 +4,7 @@
       v-for="(item, i) in items"
       :key="i"
       :ripple="false"
-      link
-      :href="item.value"
-      target="_blank"
-      rel="noopener"
+      v-bind="item"
       :selectable="false"
       dense
     >
@@ -15,7 +12,7 @@
         <v-icon>{{item.icon}}</v-icon>
       </v-list-item-icon>
       <v-list-item-content>
-        <v-list-item-title v-text="item.value"></v-list-item-title>
+        <v-list-item-title v-text="item.title"></v-list-item-title>
       </v-list-item-content>
     </v-list-item>
   </v-list>
@@ -26,16 +23,22 @@ import { Component, Vue } from "nuxt-property-decorator";
 import { mdiWeb, mdiGithub, mdiLinkedin, mdiEmail } from "@mdi/js";
 interface IContact {
   icon: string,
-  value: string
+  title: string,
+  href?: string,
+  link?: boolean,
+  nuxt?: boolean,
+  to?: string,
+  target?: string,
+  rel?: string,
 }
 
 @Component
 export default class MyContact extends Vue {
   private items: Array<IContact> = [
-    { icon: mdiWeb, value: 'https://nicolas.coch.in'},
-    { icon: mdiGithub, value: 'https://github.com/nicolascochin'},
-    { icon: mdiLinkedin, value: 'https://www.linkedin.com/in/nicolascochin/'},
-    { icon: mdiEmail, value: 'email me'},
+    { icon: mdiWeb,       title: 'https://nicolas.coch.in', href: 'https://nicolas.coch.in',                         link: true, target: "_blank", rel: "noopener"},
+    { icon: mdiGithub,    title: 'https://github.com/nicolascochin', href: 'https://github.com/nicolascochin',             link: true, target: "_blank", rel: "noopener"},
+    { icon: mdiLinkedin,  title: 'https://www.linkedin.com/in/nicolascochin/', href: 'https://www.linkedin.com/in/nicolascochin/', link: true, target: "_blank", rel: "noopener"},
+    { icon: mdiEmail,     title: 'contact', link: true, nuxt: true, to: 'contact'},
   ]
 }
 </script>

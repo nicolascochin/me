@@ -64,7 +64,7 @@ import { ValidationProvider, ValidationObserver } from 'vee-validate';
   }
 })
 export default class ContactForm extends Vue {
-  private alert: any = {type: "", value: false, message: ""}
+  private alert: any = {type: "success", value: false, message: ""}
   private from: string = ""
   private message: string = ""
   private botField: string = ""
