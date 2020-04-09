@@ -94,7 +94,7 @@ export default {
           `,
         },
         prium: {
-          headerColors: ['blue', 'darken-2'],
+          headerColors: ['green'],
           location: 'Travaille à distance',
           position: 'Senior Lead developer',
           company: 'Prium Solution',
