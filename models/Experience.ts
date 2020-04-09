@@ -13,6 +13,14 @@ export default class Experience extends Base {
     this.momentEnd = this.parseDate("end")
   }
 
+  public get headerColors(): VueI18n.TranslateResult {
+    return this.getExperienceKey('headerColors')
+  }
+  public get headerColorsString(): string {
+    // @ts-ignore
+    return this.getExperienceKey('headerColors').join(' ')
+  }
+
   public get startHuman(): VueI18n.TranslateResult {
     return this.formatDateMonthYear(this.momentStart)
   }

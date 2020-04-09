@@ -5,12 +5,15 @@
     min-height="200"
   >
     <v-timeline-item
-      color="purple lighten-2"
+      :color="experience.headerColorsString"
       fill-dot
       right
     >
       <v-card>
-        <v-card-title class="purple lighten-2 flex-column align-start">
+        <v-card-title
+          class="flex-column align-start"
+          v-bind:class="experience.headerColorsString"
+        >
           <h2 class="display-0 white--text font-weight-light">{{experience.position}}</h2>
           <span class="subtitle-1 purple--text text--lighten-5" v-show="experience.subtitle">{{experience.subtitle}}</span>
         </v-card-title>
