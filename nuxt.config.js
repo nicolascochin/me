@@ -137,6 +137,16 @@ export default {
       // }
     }
   },
+  render: {
+    bundleRenderer: {
+      shouldPreload: (file, type) => {
+        return ['script', 'font', 'style'].includes(type)
+      },
+      // shouldPrefetch: (file, type) => {
+      //   return ['style', 'font'].includes(type)
+      // }
+    },
+  },
   /*
   ** Build configuration
   */
