@@ -1,5 +1,12 @@
 <template>
   <ValidationObserver ref="observer" v-slot="{ handleSubmit }">
+    <v-alert
+      v-bind="alert"
+      close-label="Close"
+      dismissible
+    >
+      {{alert.message}}
+    </v-alert>
     <form
       data-netlify="true"
       data-netlify-honeypot="bot-field"
@@ -58,6 +65,7 @@ import { ValidationProvider, ValidationObserver } from 'vee-validate';
   }
 })
 export default class ContactForm extends Vue {
+  private alert: any = {type: "", value: false, message: ""}
   private from: string = ""
   private message: string = ""
   private botField: string = ""
@@ -79,6 +87,7 @@ export default class ContactForm extends Vue {
   }
 
   private async send() {
+    this.alert.value = false
     const options: any = {
       header: { "Content-Type": "application/x-www-form-urlencoded" }
     }
@@ -86,7 +95,13 @@ export default class ContactForm extends Vue {
       `${window.location.protocol}//${window.location.hostname}/`,
       this.dataEncoded,
       options,
-    ).then(() => console.log('FINISH'))
+    ).then(() => {
+      this.alert.type = "success"
+      this.alert.message = this.$i18n.t('contact.messageSent')
+    }).catch(() => {
+      this.alert.type = "error"
+      this.alert.message = this.$i18n.t('contact.messageNotSent')
+    }).finally(() => this.alert.value = true)
   }
 }
 </script>

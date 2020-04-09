@@ -35,6 +35,8 @@ export default {
     },
   },
   contact: {
+    messageSent: 'Votre message a bien été envoyé',
+    messageNotSent: "Une erreur est survenue. Votre message n'a pas été envoyé",
     pageTitle: 'Contact',
     from: 'Email',
     yourEmail: 'Votre email',

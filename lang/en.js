@@ -22,6 +22,8 @@ export default {
     },
   },
   contact: {
+    messageSent: 'Your message has been sent.',
+    messageNotSent: "An error occurred. Your message has not been sent.",
     pageTitle: 'Contact',
     from: 'Email',
     yourEmail: 'Your email',
