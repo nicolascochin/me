@@ -18,6 +18,7 @@
   "devDependencies": {
     "@mdi/js": "^5.0.45",
     "@nuxt/typescript-build": "^0.6.0",
+    "@nuxtjs/axios": "^5.9.7",
     "@nuxtjs/eslint-config-typescript": "^1.0.0",
     "@nuxtjs/eslint-module": "^1.0.0",
     "@nuxtjs/vuetify": "^1.0.0",
@@ -28,6 +29,7 @@
     "eslint-plugin-prettier": "^3.1.2",
     "nuxt-property-decorator": "^2.5.1",
     "nuxt-webfontloader": "^1.1.0",
-    "prettier": "^2.0.4"
+    "prettier": "^2.0.4",
+    "vee-validate": "^3.2.5"
   }
 }

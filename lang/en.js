@@ -17,6 +17,19 @@ export default {
     resume: {
       tooltip: 'My resume',
     },
+    contact: {
+      tooltip: 'Contact me',
+    },
+  },
+  contact: {
+    messageSent: 'Your message has been sent.',
+    messageNotSent: "An error occurred. Your message has not been sent.",
+    pageTitle: 'Contact',
+    from: 'Email',
+    yourEmail: 'Your email',
+    message: 'Message',
+    yourMessage: 'Your message',
+    validate: 'Send'
   },
   resume: {
     me: {

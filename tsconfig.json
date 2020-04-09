@@ -28,7 +28,8 @@
       "@nuxt/types",
       "@nuxt/vue-app",
       "@nuxtjs/moment",
-      "@nuxtjs/vuetify"
+      "@nuxtjs/vuetify",
+      "@nuxtjs/axios"
     ]
   },
   "exclude": [

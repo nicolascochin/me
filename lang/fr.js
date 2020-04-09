@@ -30,6 +30,19 @@ export default {
     resume: {
       tooltip: 'Mon CV',
     },
+    contact: {
+      tooltip: 'Contactez moi',
+    },
+  },
+  contact: {
+    messageSent: 'Votre message a bien été envoyé',
+    messageNotSent: "Une erreur est survenue. Votre message n'a pas été envoyé",
+    pageTitle: 'Contact',
+    from: 'Email',
+    yourEmail: 'Votre email',
+    message: 'Message',
+    yourMessage: 'Votre message',
+    validate: 'Envoyer'
   },
   resume: {
     me: {
