@@ -20,7 +20,6 @@
       >
         <v-text-field v-model="botField" label="bot"/>
         <!-- netlify need names -->
-        <input name="title" type="text" />
         <input name="email" type="email" />
         <input name="summary" type="text" />
         <input name="bot-field" type="text" />
@@ -72,7 +71,6 @@ export default class ContactForm extends Vue {
 
   private get dataToSend(): any {
     return {
-      title: 'TBD',
       email: this.from,
       summary: this.message,
       'form-name': "contact",
