@@ -10,8 +10,9 @@
       right
     >
       <v-card>
-        <v-card-title class="purple lighten-2">
+        <v-card-title class="purple lighten-2 flex-column align-start">
           <h2 class="display-0 white--text font-weight-light">{{experience.position}}</h2>
+          <span class="subtitle-1 purple--text text--lighten-5" v-show="experience.subtitle">{{experience.subtitle}}</span>
         </v-card-title>
         <ExperienceDescriptionList :experience="experience" />
         <v-card-text class="px-3 py-1" v-html="experience.description" />

@@ -113,7 +113,8 @@ export default {
         },
         TrikeItEasy: {
           location: 'Entre Paris et Bangkok',
-          position: 'Voyage à vélo (Paris à Bangkok)',
+          position: 'Voyage à vélo',
+          subtitle: 'De Paris à Bangkok',
           company: 'TrikeItEasy',
           start: '2014-03',
           end: '2015-03',

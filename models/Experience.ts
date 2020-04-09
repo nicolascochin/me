@@ -29,6 +29,11 @@ export default class Experience extends Base {
     return this.getExperienceKey('position')
   }
 
+  public get subtitle(): VueI18n.TranslateResult|null {
+    const key: string = 'subtitle'
+    return this.te(this.getFullKey(key)) ? this.getExperienceKey('subtitle') : null
+  }
+
   public get company(): VueI18n.TranslateResult {
     return this.getExperienceKey('company')
   }
@@ -66,8 +71,12 @@ export default class Experience extends Base {
     }
   }
 
+  private getFullKey(key: string) : string {
+    return `resume.experience.experiences.${this.i18nKey}.${key}`
+  }
+
   private getExperienceKey(key: string): VueI18n.TranslateResult {
-    return this.t(`resume.experience.experiences.${this.i18nKey}.${key}`)
+    return this.t(this.getFullKey(key))
   }
 
   private formatDateMonthYear(date: Date): VueI18n.TranslateResult {
