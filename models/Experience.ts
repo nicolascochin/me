@@ -3,9 +3,20 @@
 import Base from "./Base"
 import VueI18n from 'vue-i18n'
 
+import { mdiBank, mdiAirplane, mdiBicycle, mdiWeb, mdiHomeGroup, mdiGoogleAds } from "@mdi/js";
+
 export default class Experience extends Base {
   public momentStart!: Date;
   public momentEnd!: Date;
+
+  private icons: any = {
+    bank: mdiBank,
+    plane: mdiAirplane,
+    bicycle: mdiBicycle,
+    web: mdiWeb,
+    home: mdiHomeGroup,
+    googleAds: mdiGoogleAds,
+  }
 
   constructor(public i18nKey: string) {
     super()
@@ -18,7 +29,11 @@ export default class Experience extends Base {
   }
   public get headerColorsString(): string {
     // @ts-ignore
-    return this.getExperienceKey('headerColors').join(' ')
+    return this.headerColors.join(' ')
+  }
+
+  public get icon(): string {
+    return this.icons[this.getExperienceKey('icon').toString()]
   }
 
   public get startHuman(): VueI18n.TranslateResult {

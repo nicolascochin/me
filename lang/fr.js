@@ -72,7 +72,8 @@ export default {
       title: 'Expériences',
       experiences: {
         helloPret: {
-          headerColors: ['white'],
+          icon: 'home',
+          headerColors: ['secondary'],
           location: 'Travaille à distance',
           position: 'Senior Lead developer',
           company: 'HelloPrêt',
@@ -83,6 +84,7 @@ export default {
           `,
         },
         effilab: {
+          icon: 'googleAds',
           headerColors: ['blue', 'darken-2'],
           location: 'Travaille à distance',
           position: 'Senior Lead developer',
@@ -94,6 +96,7 @@ export default {
           `,
         },
         prium: {
+          icon: 'web',
           headerColors: ['green'],
           location: 'Travaille à distance',
           position: 'Senior Lead developer',
@@ -105,6 +108,7 @@ export default {
           `,
         },
         bnpCalpypsoLast: {
+          icon: 'bank',
           headerColors: ['pink', 'darken-2'],
           location: 'Paris (France)',
           position: 'Senior Lead developer',
@@ -116,6 +120,7 @@ export default {
           `,
         },
         TrikeItEasy: {
+          icon: 'bicycle',
           headerColors: ['orange', 'lighten-2'],
           location: 'Entre Paris et Bangkok',
           position: 'Voyage à vélo',
@@ -128,6 +133,7 @@ export default {
           `,
         },
         SG: {
+          icon: 'bank',
           headerColors: ['brown', 'darken-2'],
           location: 'Paris (France)',
           position: 'Senior Lead developer',
@@ -139,6 +145,7 @@ export default {
           `,
         },
         bnpPrimeBrokerage: {
+          icon: 'bank',
           headerColors: ['blue-grey', 'lighten-2'],
           location: 'Travaille à distance (équipe à New York)',
           position: 'Java Software engineer',
@@ -150,6 +157,7 @@ export default {
           `,
         },
         bnpCalpypsoFirst: {
+          icon: 'bank',
           headerColors: ['error'],
           location: 'Paris (France)',
           position: 'Consultant Calypso',
@@ -161,6 +169,7 @@ export default {
           `,
         },
         calyon: {
+          icon: 'bank',
           headerColors: ['blue', 'lighten-5'],
           location: 'Paris (France)',
           position: 'Java Software engineer',
@@ -172,6 +181,7 @@ export default {
           `,
         },
         thales: {
+          icon: 'plane',
           headerColors: ['primary'],
           location: 'Melbourne (Australie)',
           position: 'Java Software engineer',

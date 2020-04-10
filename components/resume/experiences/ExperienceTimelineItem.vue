@@ -6,6 +6,7 @@
   >
     <v-timeline-item
       :color="experience.headerColorsString"
+      :icon="experience.icon"
       fill-dot
       right
     >
