@@ -6,7 +6,6 @@
       :ripple="false"
       v-bind="item"
       :selectable="false"
-      dense
     >
       <v-list-item-icon>
         <v-icon>{{item.icon}}</v-icon>

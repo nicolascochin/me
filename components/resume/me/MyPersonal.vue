@@ -5,8 +5,6 @@
       <v-list-item
         v-for="(item, i) in items"
         :key="i"
-        :ripple="false"
-        :selectable="true"
       >
         <v-list-item-icon>
           <v-icon>{{item.icon}}</v-icon>
