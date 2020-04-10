@@ -72,7 +72,7 @@ export default {
       title: 'Expériences',
       experiences: {
         helloPret: {
-          headerColors: ['pink'],
+          headerColors: ['white'],
           location: 'Travaille à distance',
           position: 'Senior Lead developer',
           company: 'HelloPrêt',
@@ -105,7 +105,7 @@ export default {
           `,
         },
         bnpCalpypsoLast: {
-          headerColors: ['blue', 'darken-2'],
+          headerColors: ['pink', 'darken-2'],
           location: 'Paris (France)',
           position: 'Senior Lead developer',
           company: 'BNP Paribas',
@@ -116,7 +116,7 @@ export default {
           `,
         },
         TrikeItEasy: {
-          headerColors: ['blue', 'darken-2'],
+          headerColors: ['orange', 'lighten-2'],
           location: 'Entre Paris et Bangkok',
           position: 'Voyage à vélo',
           subtitle: 'De Paris à Bangkok',
@@ -128,7 +128,7 @@ export default {
           `,
         },
         SG: {
-          headerColors: ['blue', 'darken-2'],
+          headerColors: ['brown', 'darken-2'],
           location: 'Paris (France)',
           position: 'Senior Lead developer',
           company: 'Société Générale',
@@ -139,7 +139,7 @@ export default {
           `,
         },
         bnpPrimeBrokerage: {
-          headerColors: ['blue', 'darken-2'],
+          headerColors: ['blue-grey', 'lighten-2'],
           location: 'Travaille à distance (équipe à New York)',
           position: 'Java Software engineer',
           company: 'BNP Paribas',
@@ -150,7 +150,7 @@ export default {
           `,
         },
         bnpCalpypsoFirst: {
-          headerColors: ['blue', 'darken-2'],
+          headerColors: ['error'],
           location: 'Paris (France)',
           position: 'Consultant Calypso',
           company: 'BNP Paribas',
@@ -161,7 +161,7 @@ export default {
           `,
         },
         calyon: {
-          headerColors: ['blue', 'darken-2'],
+          headerColors: ['blue', 'lighten-5'],
           location: 'Paris (France)',
           position: 'Java Software engineer',
           company: 'Crédit agricole CIB',
@@ -172,7 +172,7 @@ export default {
           `,
         },
         thales: {
-          headerColors: ['blue', 'darken-2'],
+          headerColors: ['primary'],
           location: 'Melbourne (Australie)',
           position: 'Java Software engineer',
           company: 'Thales ATM',
