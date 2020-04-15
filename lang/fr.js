@@ -27,17 +27,17 @@ export default {
     index: {
       tooltip: 'Accueil',
       title: 'Accueil',
-      description: 'todo',
+      description: 'moi, juste moi',
     },
     resume: {
       tooltip: 'Mon CV',
       title: 'Mon CV',
-      description: 'todo',
+      description: 'mon cv, mon parcours professionnel',
     },
     contact: {
       tooltip: 'Contactez moi',
       title: 'Contactez moi',
-      description: 'todo',
+      description: 'contactez moi. Laisser votre email et votre message et je vous recontacterai',
     },
   },
   contact: {

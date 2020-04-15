@@ -14,17 +14,17 @@ export default {
     index: {
       tooltip: 'Home',
       title: 'Home',
-      description: 'todo en',
+      description: 'me, just me',
     },
     resume: {
       tooltip: 'My resume',
       title: 'My resume',
-      description: 'todo en',
+      description: 'my resume, my professional background',
     },
     contact: {
       tooltip: 'Contact me',
       title: 'Contact me',
-      description: 'todo en',
+      description: "Contact me. Leave your email and your message and I'll get back to you.",
     },
   },
   contact: {
