@@ -11,14 +11,20 @@ export default {
     ...en
   },
   pages: {
-    home: {
+    index: {
       tooltip: 'Home',
+      title: 'Home',
+      description: 'todo en',
     },
     resume: {
       tooltip: 'My resume',
+      title: 'My resume',
+      description: 'todo en',
     },
     contact: {
       tooltip: 'Contact me',
+      title: 'Contact me',
+      description: 'todo en',
     },
   },
   contact: {

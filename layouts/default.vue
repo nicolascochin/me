@@ -21,7 +21,26 @@ import AppContent from "@/components/ui/layout/AppContent.vue";
 })
 export default class LayoutDefault extends Vue {
   private head () {
-    return (this as any).$nuxtI18nSeo();
+    const i18nSeo = (this as any).$nuxtI18nSeo();
+    const routeName = this.$nuxt.$route.name || ''
+    const i18nKey = routeName.replace(/___.*$/, '')
+    return {
+      htmlAttrs: {
+        ...i18nSeo.htmlAttrs
+      },
+      title: this.$i18n.t(`pages.${i18nKey}.title`),
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.$i18n.t(`pages.${i18nKey}.description`)
+        },
+        ...i18nSeo.meta
+      ],
+      link: [
+        ...i18nSeo.link
+     ]
+    }
   }
 }
 </script>

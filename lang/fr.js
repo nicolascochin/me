@@ -24,14 +24,20 @@ export default {
   //   }
   // },
   pages: {
-    home: {
+    index: {
       tooltip: 'Accueil',
+      title: 'Accueil',
+      description: 'todo',
     },
     resume: {
       tooltip: 'Mon CV',
+      title: 'Mon CV',
+      description: 'todo',
     },
     contact: {
       tooltip: 'Contactez moi',
+      title: 'Contactez moi',
+      description: 'todo',
     },
   },
   contact: {
