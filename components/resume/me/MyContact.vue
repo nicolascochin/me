@@ -1,12 +1,11 @@
 <template>
-  <v-list dense flat>
+  <v-list dense flat class="pt-0 pt-md-2">
     <v-list-item
       v-for="(item, i) in items"
       :key="i"
       :ripple="false"
       v-bind="item"
       :selectable="false"
-      dense
     >
       <v-list-item-icon>
         <v-icon>{{item.icon}}</v-icon>
@@ -37,7 +36,7 @@ export default class MyContact extends Vue {
   private items: Array<IContact> = [
     { icon: mdiWeb,       title: 'https://nicolas.coch.in', href: 'https://nicolas.coch.in',                         link: true, target: "_blank", rel: "noopener"},
     { icon: mdiGithub,    title: 'https://github.com/nicolascochin', href: 'https://github.com/nicolascochin',             link: true, target: "_blank", rel: "noopener"},
-    { icon: mdiLinkedin,  title: 'https://www.linkedin.com/in/nicolascochin/', href: 'https://www.linkedin.com/in/nicolascochin/', link: true, target: "_blank", rel: "noopener"},
+    { icon: mdiLinkedin,  title: 'https://www.linkedin.com/in/nicolascochin', href: 'https://www.linkedin.com/in/nicolascochin/', link: true, target: "_blank", rel: "noopener"},
     { icon: mdiEmail,     title: 'contact', link: true, nuxt: true, to: 'contact'},
   ]
 }

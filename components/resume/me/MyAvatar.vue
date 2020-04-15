@@ -32,6 +32,6 @@ export default class MyAvatar extends Vue {
 
 <style lang="scss" scoped>
 .with-border {
-  border: 2px solid steelblue;
+  border: 3px solid steelblue;
 }
 </style>

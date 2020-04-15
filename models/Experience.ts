@@ -3,14 +3,37 @@
 import Base from "./Base"
 import VueI18n from 'vue-i18n'
 
+import { mdiBank, mdiAirplane, mdiBicycle, mdiWeb, mdiHomeGroup, mdiGoogleAds } from "@mdi/js";
+
 export default class Experience extends Base {
   public momentStart!: Date;
   public momentEnd!: Date;
 
+  private icons: any = {
+    bank: mdiBank,
+    plane: mdiAirplane,
+    bicycle: mdiBicycle,
+    web: mdiWeb,
+    home: mdiHomeGroup,
+    googleAds: mdiGoogleAds,
+  }
+
   constructor(public i18nKey: string) {
     super()
-    this.momentStart = new Date(Date.parse(this.getExperienceKey('start') as string));
-    this.momentEnd = new Date(Date.parse(this.getExperienceKey('end') as string));
+    this.momentStart = this.parseDate("start")
+    this.momentEnd = this.parseDate("end")
+  }
+
+  public get headerColors(): VueI18n.TranslateResult {
+    return this.getExperienceKey('headerColors')
+  }
+  public get headerColorsString(): string {
+    // @ts-ignore
+    return this.headerColors.join(' ')
+  }
+
+  public get icon(): string {
+    return this.icons[this.getExperienceKey('icon').toString()]
   }
 
   public get startHuman(): VueI18n.TranslateResult {
@@ -27,6 +50,11 @@ export default class Experience extends Base {
 
   public get position(): VueI18n.TranslateResult {
     return this.getExperienceKey('position')
+  }
+
+  public get subtitle(): VueI18n.TranslateResult|null {
+    const key: string = 'subtitle'
+    return this.te(this.getFullKey(key)) ? this.getExperienceKey('subtitle') : null
   }
 
   public get company(): VueI18n.TranslateResult {
@@ -57,8 +85,21 @@ export default class Experience extends Base {
     };
   }
 
+  private parseDate(key: string): Date {
+    const translation = this.getExperienceKey(key)
+    if (translation) {
+      return new Date(Date.parse(this.getExperienceKey(key) as string))
+    } else {
+      return new Date()
+    }
+  }
+
+  private getFullKey(key: string) : string {
+    return `resume.experience.experiences.${this.i18nKey}.${key}`
+  }
+
   private getExperienceKey(key: string): VueI18n.TranslateResult {
-    return this.t(`resume.experience.experiences.${this.i18nKey}.${key}`)
+    return this.t(this.getFullKey(key))
   }
 
   private formatDateMonthYear(date: Date): VueI18n.TranslateResult {
