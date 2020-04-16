@@ -27,6 +27,7 @@ export default class OneColumnWithTimelineLayout extends Vue {
 #resume {
   .section_title {
     border-bottom: 1px solid var(--v-primary-base);
+    margin-top: 40px;
     margin-bottom: 20px;
   }
 }

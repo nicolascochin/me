@@ -1,8 +1,14 @@
 <template>
-  <article :class="classes">
-    <h2 class="resume section_title">{{data.title}}</h2>
-    <div v-html="data.content"></div>
-  </article>
+  <v-lazy
+    transition="fade-transition"
+    :options="{threshold: .5}"
+    min-height="200"
+  >
+    <section :class="classes">
+      <h3 class="resume section_title headline">{{data.title}}</h3>
+      <div v-html="data.content"></div>
+    </section>
+  </v-lazy>
 </template>
 
 <script lang="ts">

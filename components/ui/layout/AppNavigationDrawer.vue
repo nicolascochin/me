@@ -40,14 +40,15 @@
 
 <script lang="ts">
 import { Component, mixins } from "nuxt-property-decorator";
-import { mdiHome, mdiViewDashboard, mdiBadgeAccountHorizontalOutline } from "@mdi/js";
+import { mdiHome, mdiEmail, mdiBadgeAccountHorizontalOutline } from "@mdi/js";
 import ResponsiveMixin from "@/mixins/ResponsiveMixin";
 
 @Component
 export default class AppNavigationDrawer extends mixins(ResponsiveMixin) {
   private items:any[] =  [
-    { title: 'pages.home.tooltip',   icon: mdiHome, route: 'index' },
+    { title: 'pages.index.tooltip',   icon: mdiHome, route: 'index' },
     { title: 'pages.resume.tooltip', icon: mdiBadgeAccountHorizontalOutline, route: 'resume' },
+    { title: 'pages.contact.tooltip', icon: mdiEmail, route: 'contact' },
   ]
 
   private drawer: boolean = true;

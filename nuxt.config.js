@@ -4,7 +4,7 @@ export default {
   ** Headers of the page
   */
   head: {
-    titleTemplate: '%s - ' + process.env.npm_package_name,
+    titleTemplate: `%s | Nicolas COCHIN`,
     title: process.env.npm_package_name || '',
     meta: [
       { charset: 'utf-8' },
@@ -32,6 +32,7 @@ export default {
   plugins: [
     "@/plugins/eventBus",
     "@/plugins/export_i18n",
+    "@/plugins/vee-validate",
   ],
   /*
   ** Nuxt.js dev-modules
@@ -44,9 +45,13 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
+    '@nuxtjs/axios',
     'nuxt-i18n',
     'nuxt-webfontloader',
   ],
+  axios: {
+    // proxyHeaders: false
+  },
   /*
   ** Nuxt.js hooks (unused thanks to defaultAssets: false,)
   */
@@ -137,6 +142,9 @@ export default {
   */
   build: {
     // extractCSS: true,
+    transpile: [
+      'vee-validate'
+    ],
     /*
     ** You can extend webpack config here
     */

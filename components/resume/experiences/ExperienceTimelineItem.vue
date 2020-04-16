@@ -1,19 +1,30 @@
 <template>
-  <v-timeline-item
-    color="purple lighten-2"
-    fill-dot
-    right
+  <v-lazy
+    transition="fade-transition"
+    :options="{threshold: .5}"
+    min-height="200"
   >
-    <v-card>
-      <v-card-title class="purple lighten-2">
-        <h2 class="display-0 white--text font-weight-light">{{experience.position}}</h2>
-      </v-card-title>
-      <ExperienceDescriptionList :experience="experience" />
-      <v-card-text class="px-3 py-1" v-html="experience.description" />
-      <v-divider class="my-2"/>
-      <ExperienceTags :experience="experience" />
-    </v-card>
-  </v-timeline-item>
+    <v-timeline-item
+      :color="experience.headerColorsString"
+      :icon="experience.icon"
+      fill-dot
+      right
+    >
+      <v-card>
+        <v-card-title
+          class="flex-column align-start"
+          v-bind:class="experience.headerColorsString"
+        >
+          <h2 class="display-0 white--text font-weight-light">{{experience.position}}</h2>
+          <span class="subtitle-1 grey--text text--lighten-4" v-show="experience.subtitle">{{experience.subtitle}}</span>
+        </v-card-title>
+        <ExperienceDescriptionList :experience="experience" />
+        <v-card-text class="px-3 py-1" v-html="experience.description" />
+        <v-divider class="my-2"/>
+        <ExperienceTags :experience="experience" />
+      </v-card>
+    </v-timeline-item>
+  </v-lazy>
 </template>
 
 <script lang="ts">

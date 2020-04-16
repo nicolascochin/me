@@ -8,6 +8,9 @@ export default class Base {
     return Base.moment;
   }
 
+  protected te(key: string): boolean {
+    return Base.i18n.te(key)
+  }
   protected t(key: string): VueI18n.TranslateResult {
     return Base.i18n.t(key)
   }
