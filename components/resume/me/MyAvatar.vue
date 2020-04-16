@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section :style="sectionStyles">
     <v-avatar :size="150" class="with-border" >
       <v-img
         src="/me.webp"
@@ -22,11 +22,15 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "nuxt-property-decorator";
+import { Component, Prop, Vue } from "nuxt-property-decorator";
 
 @Component
 export default class MyAvatar extends Vue {
+  @Prop({default: "center"}) private alignment!: string;
 
+  private sectionStyles: any = {
+    "text-align": this.alignment,
+  }
 }
 </script>
 
