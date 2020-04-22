@@ -51,7 +51,7 @@ export default {
     '@nuxtjs/sitemap',
   ],
   sitemap: {
-
+    hostname: 'https://nicolas.coch.in',
   },
   axios: {
     // proxyHeaders: false
