@@ -48,7 +48,11 @@ export default {
     '@nuxtjs/axios',
     'nuxt-i18n',
     'nuxt-webfontloader',
+    '@nuxtjs/sitemap',
   ],
+  sitemap: {
+
+  },
   axios: {
     // proxyHeaders: false
   },
