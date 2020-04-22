@@ -48,9 +48,16 @@ export default {
     '@nuxtjs/axios',
     'nuxt-i18n',
     'nuxt-webfontloader',
+    '@nuxtjs/sitemap',
   ],
+  sitemap: {
+    hostname: 'https://nicolas.coch.in',
+  },
   axios: {
     // proxyHeaders: false
+  },
+  router: {
+    trailingSlash: true,
   },
   /*
   ** Nuxt.js hooks (unused thanks to defaultAssets: false,)

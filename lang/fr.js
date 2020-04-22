@@ -40,6 +40,18 @@ export default {
       description: 'contactez moi. Laisser votre email et votre message et je vous recontacterai',
     },
   },
+  home: {
+    btn: {
+      contact: 'Un petit mail?',
+      resume: 'Voir mon cv',
+    },
+    intro: `<p>Mes {count} années d’expérience m’ont permis d’acquérir une expertise dans le développement logiciel.</p>
+    <p>Du développement d’un outil de contrôle aérien, au remplacement d’une solution de paiements d’une BFI, j’ai appris à developper et mettre en place des solutions maintenables et robustes ou très souvent, l’erreur n’est pas permise.</p>
+    <p>Mon passage dans le milieu bancaire m’a permis de développer des solutions où la performance est primordiale.</p>
+    <p>Dernièrement mes expériences dans le web, m’ont permis d’élargir mes compétences sur de nouveaux langages, frameworks, architectures et nouvelles technologies.</p>
+    <p>Au cours de toutes ces expériences, j’ai très souvent été lead developper. J’ai également coaché et encadré des équipes jusqu’à une dizaine de personnes.</p>
+    `
+  },
   contact: {
     messageSent: 'Votre message a bien été envoyé',
     messageNotSent: "Une erreur est survenue. Votre message n'a pas été envoyé",
