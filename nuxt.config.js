@@ -49,7 +49,11 @@ export default {
     'nuxt-i18n',
     'nuxt-webfontloader',
     '@nuxtjs/sitemap',
+    '@nuxtjs/google-analytics',
   ],
+  googleAnalytics: {
+    id: 'UA-164286937-1'
+  },
   sitemap: {
     hostname: 'https://nicolas.coch.in',
   },
