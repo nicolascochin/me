@@ -37,7 +37,8 @@ export default class MyContact extends Vue {
     { icon: mdiWeb,       title: 'https://nicolas.coch.in', href: 'https://nicolas.coch.in',                         link: true, target: "_blank", rel: "noopener"},
     { icon: mdiGithub,    title: 'https://github.com/nicolascochin', href: 'https://github.com/nicolascochin',             link: true, target: "_blank", rel: "noopener"},
     { icon: mdiLinkedin,  title: 'https://www.linkedin.com/in/nicolascochin', href: 'https://www.linkedin.com/in/nicolascochin/', link: true, target: "_blank", rel: "noopener"},
-    { icon: mdiEmail,     title: 'contact', link: true, nuxt: true, to: 'contact'},
+    // @ts-ignore
+    { icon: mdiEmail,     title: 'contact', link: true, nuxt: true, to: this.localePath({name: 'contact'})},
   ]
 }
 </script>
