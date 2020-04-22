@@ -27,6 +27,18 @@ export default {
       description: "Contact me. Leave your email and your message and I'll get back to you.",
     },
   },
+  home: {
+    btn: {
+      contact: 'An email?',
+      resume: 'See my resume',
+    },
+    intro: `<p>My {count} years of experience have allowed me to acquire expertise in software development.</p>
+    <p>From the development of an air traffic control tool, to the replacement of a Investment banking payment solution, I have learned how to develop and implement maintainable and robust solutions where very often, error is not allowed.</p>
+    <p>My experience in the banking industry has allowed me to develop solutions where performance is paramount.</p>
+    <p>My last experiences in the web has allowed me to broaden my skills on new languages, frameworks, architectures and new technologies.</p>
+    <p>During all these experiences, I was often lead developer. I have also coached and supervised teams of up to ten people.</p>
+    `
+  },
   contact: {
     messageSent: 'Your message has been sent.',
     messageNotSent: "An error occurred. Your message has not been sent.",
