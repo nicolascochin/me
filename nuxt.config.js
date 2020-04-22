@@ -52,6 +52,9 @@ export default {
   axios: {
     // proxyHeaders: false
   },
+  router: {
+    trailingSlash: true,
+  },
   /*
   ** Nuxt.js hooks (unused thanks to defaultAssets: false,)
   */

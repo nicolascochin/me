@@ -1,29 +1,42 @@
 <template>
-  <pre>
-    <code :class="`language-${this.language.name}`" v-text="language.code">
-    </code>
-  </pre>
+  <Prism :language="language.name">{{ language.code }}</Prism>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "nuxt-property-decorator";
+import { Component, Vue, Watch } from "nuxt-property-decorator";
+import Prism from 'vue-prism-component';
+import 'prismjs/components/prism-ruby'
+import 'prismjs/components/prism-python'
+import 'prismjs/components/prism-javascript'
+import 'prismjs/components/prism-java'
+import 'prismjs'
 
 interface ILanguage {
   name: string,
   code: string,
 }
 
-@Component
+@Component({
+  components: {
+    Prism,
+  }
+})
 export default class Languages extends Vue {
   private languages: Array<ILanguage> = [
-    { name: 'Java', code: `System.out.println("Bonjour");` },
-    { name: 'JS', code: `console.log("Bonjour");` },
-    { name: 'Ruby', code: `puts "Bonjour"` },
-    { name: 'Python', code: `print("Bonjour")` },
+    { name: 'java', code: `System.out.println("Bonjour");` },
+    { name: 'javascript', code: `console.log("Bonjour");` },
+    { name: 'ruby', code: `puts "Bonjour"` },
+    { name: 'python', code: `print("Bonjour")` },
   ]
 
-  private get language(): ILanguage {
-    return this.languages[Math.floor(Math.random() * this.languages.length)]
+  private language!: ILanguage;
+
+  public created() {
+    this.language = this.languages[Math.floor(Math.random() * this.languages.length)]
   }
 }
 </script>
+
+ <style src="prismjs/themes/prism.css"> scoped>
+ /* @import "~prismjs/themes/prism.css" */
+ </style>

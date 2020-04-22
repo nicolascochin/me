@@ -18,8 +18,9 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "nuxt-property-decorator";
+import { Component, mixins } from "nuxt-property-decorator";
 import VueI18n from 'vue-i18n'
+import XpMixin from "@/mixins/XpMixin";
 import { mdiRemote, mdiBriefcase, mdiHome } from "@mdi/js";
 
 interface IPersonal {
@@ -28,18 +29,14 @@ interface IPersonal {
 }
 
 @Component
-export default class MyPersonal extends Vue {
+export default class MyPersonal extends mixins(XpMixin) {
   private static i18nPrefix: string = 'resume.me.personal';
 
   private items: Array<IPersonal> = [
     { icon: mdiRemote, value: this.translate('remote')},
-    { icon: mdiBriefcase, value: this.translatec('xp', this.numberYearsOfXp)},
+    { icon: mdiBriefcase, value: this.translatec('xp', this.numberYearsOfXp())},
     { icon: mdiHome, value: this.translate('home')},
   ]
-
-  private get numberYearsOfXp(): number {
-    return new Date().getFullYear() - 2004;
-  }
 
   private translate(key: string): VueI18n.TranslateResult {
     return this.$t(`${MyPersonal.i18nPrefix}.${key}`)
