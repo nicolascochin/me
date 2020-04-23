@@ -27,17 +27,18 @@ export default {
     index: {
       tooltip: 'Accueil',
       title: 'Accueil',
-      description: 'moi, juste moi',
+      description: `Nicolas COCHIN, lead développeur full stack.
+      Son domaine d'expertise : applis back et front, devops, Java, Ruby, Javascript, Typescript, Python.`,
     },
     resume: {
       tooltip: 'Mon CV',
       title: 'Mon CV',
-      description: 'mon cv, mon parcours professionnel',
+      description: 'CV de Nicolas COCHIN, lead développeur full stack.',
     },
     contact: {
       tooltip: 'Contactez moi',
       title: 'Contactez moi',
-      description: 'contactez moi. Laisser votre email et votre message et je vous recontacterai',
+      description: 'Prenez contact avec Nicolas COCHIN, lead développeur full stack.',
     },
   },
   home: {
