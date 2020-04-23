@@ -14,17 +14,18 @@ export default {
     index: {
       tooltip: 'Home',
       title: 'Home',
-      description: 'me, just me',
+      description: `Nicolas COCHIN, lead developer full stack.
+      His area of expertise: back and front applications, devops, Java, Ruby, Javascript, Typescript, Python.`,
     },
     resume: {
       tooltip: 'My resume',
       title: 'My resume',
-      description: 'my resume, my professional background',
+      description: `Nicolas COCHIN's resume full stack lead developer.`,
     },
     contact: {
       tooltip: 'Contact me',
       title: 'Contact me',
-      description: "Contact me. Leave your email and your message and I'll get back to you.",
+      description: "Get in touch with Nicolas COCHIN, full stack lead developer.",
     },
   },
   home: {
