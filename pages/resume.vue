@@ -1,14 +1,19 @@
 <template>
-  <OneColumnLayout :resume="resume" />
+  <LazyHydrate ssr-only>
+    <OneColumnLayout :resume="resume" />
+  </LazyHydrate>
 </template>
 
 
 <script lang="ts">
 import { Component, Vue } from "nuxt-property-decorator";
 import Resume from "@/models/Resume";
+import LazyHydrate from 'vue-lazy-hydration';
+
 
 @Component({
   components: {
+    LazyHydrate,
     OneColumnLayout: () => import("@/components/resume/layouts/OneColumnWithTimeline.vue"),
   }
 })
