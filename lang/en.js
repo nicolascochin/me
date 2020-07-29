@@ -127,10 +127,10 @@ export default {
             <li>Migrate all applications from OVH/Heroku to Google Cloud Platform (GCP) using Google Kubernetes Engine (GKE)</li>
           </ul>
           <dl style="margin-top: 10px">
-            <dtSetting up the data warehouse</dt>
+            <dt>Setting up the data warehouse</dt>
             <dd>
               <p>The directive I had was to request Google and Bing to retrieve the history and not to modify this data. So we went for a solution based on Hadoop and Hive.</p>
-              <p>The data processing part was done by the business through Metabase which was plugged on a DB presto plugged on Hive.</p>
+              <p>The data processing part was done by the business through Metabase which was plugged on PrestoDB plugged on Hive.</p>
               <ul>
                 <li>Setting up Hadoop and Hive</li>
                 <li>Development of batchs to retrieve daily Google and Bing history</li>
@@ -164,7 +164,7 @@ export default {
               <ul>
                 <li>For the data warehouse, the directive to want to keep the results of Google and Bing in files has required a large infrastructure quite complex to maintain. For the FB application, I proposed to store the results in PG (in partitioned tables). This solution is much simpler to maintain, lower in infra cost and more performant.</li>
                 <li>The FB application has allowed, since its production launch, to manage hundreds of client accounts per back users, without ever having to connect to Facebook. Synchronization with FB is almost instantaneous.</li>
-                <li>All applications now have a similar deployment and devs have opened up to the world of devops.</li>
+                <li>All applications now have a similar deployment.</li>
               </ul>
             </dd>
           </dl>
