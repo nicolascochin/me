@@ -178,7 +178,7 @@ export default {
               <ul>
                 <li>Pour le data warehouse, la directive de vouloir garder les résultats de Google et Bing dans des fichiers a demander une grosse infrastructure assez complexe à maintenir. Pour l'application FB, j'ai proposé de stocker les résultats dans PG (dans des tables partitionnées). Cette solution est beaucoup plus simple à maintenir, plus faible en coût d'infra et plus performante.</li>
                 <li>L'application FB à permis, dès sa mise en production, de gérer des centaines de comptes client par utilisateurs back, sans jamais avoir à se connecter à Facebook. La synchronisation avec FB est quasi instantanée.</li>
-                <li>Toutes les applications ont maintenant un déploiement similaire et les devs se sont ouverts vers le monde du devops</li>
+                <li>Toutes les applications ont maintenant un déploiement similaire</li>
               </ul>
             </dd>
           </dl>
