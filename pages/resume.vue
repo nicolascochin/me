@@ -17,5 +17,14 @@ export default class PageResume extends Vue {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" >
+#resume {
+  dt {
+    font-weight: bold;
+  }
+
+  dd {
+    margin-left: 30px
+  }
+}
 </style>
