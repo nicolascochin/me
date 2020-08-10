@@ -33,6 +33,6 @@
     "nuxt-property-decorator": "^2.7.2",
     "nuxt-webfontloader": "^1.1.0",
     "prettier": "^2.0.5",
-    "vee-validate": "^3.3.0"
+    "vee-validate": "^3.3.9"
   }
 }
