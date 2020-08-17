@@ -813,10 +813,10 @@
     js-yaml "^3.13.1"
     json5 "^2.1.1"
 
-"@mdi/js@^5.1.45":
-  version "5.1.45"
-  resolved "https://registry.yarnpkg.com/@mdi/js/-/js-5.1.45.tgz#92ac075c7080d29b430bd76ec8dc0536b800f4b0"
-  integrity sha512-44He8VMteUIWE0lIZjAIH/QoxNXbGoeqA1uwzJKwRpiaU6d5n2JjvL+11uH5nQQTJtU1nQFdKpB/j5S6rM3jtQ==
+"@mdi/js@^5.5.55":
+  version "5.5.55"
+  resolved "https://registry.yarnpkg.com/@mdi/js/-/js-5.5.55.tgz#8dc97fbcc47d1f6bfa3343d4f7c7f5c0e2990151"
+  integrity sha512-vbw1QW3M9A4vObU9WmTETTG7n7feC9HSn/3up8ZYk/M3K9fGL9FPtw0+bdASRu1UOBgEsqC9eBhNW10IOcwMIg==
 
 "@nuxt/babel-preset-app@2.12.2":
   version "2.12.2"

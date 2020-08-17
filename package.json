@@ -19,7 +19,7 @@
     "vue-prism-component": "^1.2.0"
   },
   "devDependencies": {
-    "@mdi/js": "^5.1.45",
+    "@mdi/js": "^5.5.55",
     "@nuxt/typescript-build": "^0.6.6",
     "@nuxtjs/axios": "^5.12.0",
     "@nuxtjs/eslint-config-typescript": "^1.0.0",
